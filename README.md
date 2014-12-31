@@ -7,13 +7,18 @@ A custom view that displays an error image, a title, and a subtitle given an HTT
 </p>
 
 #Usage
-###HTTP Status Code
+###Add as a dependency
+```groovy
+    compile 'com.github.xiprox.errorview:library:1.0.0'
+````
+
+###Set the error by HTTP Status Code
 You just need to pass your HTTP status code using `setError(int)` and ErrorView will show the associated error description for you.
 
-###Manually
+###Set the error manually
 In order to set the title or the subtitle manually, you can make use of the `setErrorTitle(String)`, `setErrorTite(int)`, `setErrorSubtitle(String)`, and `setErrorSubtitle(int)` methods.
 
-###Catching Retry Events
+###Catch Retry Events
 To catch retry events, you can make use of the `setOnRetryListener(RetryListener)` method.
 
 ###More Methods
