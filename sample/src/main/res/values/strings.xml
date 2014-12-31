@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ErrorView Sample</string>
+
+    <string name="error_title_damn">Damn</string>
+    <string name="error_subtitle_failed_one_more_time">Failed one more time</string>
+
+    <string name="info_retrying">Retrying</string>
+</resources>

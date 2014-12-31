@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ErrorView">
+        <attr name="ev_errorTitle" format="string" />
+        <attr name="ev_errorSubtitle" format="string" />
+        <attr name="ev_errorImage" format="reference" />
+        <attr name="ev_showTitle" format="boolean" />
+        <attr name="ev_showSubtitle" format="boolean" />
+        <attr name="ev_showRetryButton" format="boolean" />
+        <attr name="ev_retryButtonBackground" format="reference" />
+        <attr name="ev_retryButtonTextColor" format="color" />
+    </declare-styleable>
+</resources>
