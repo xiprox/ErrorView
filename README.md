@@ -17,7 +17,7 @@ In order to set the title or the subtitle manually, you can make use of the `set
 To catch retry events, you can make use of the `setOnRetryListener(RetryListener)` method.
 
 ###More Methods
-Check out the [source code](../blob/master/library/src/main/java/tr/xip/errorview/ErrorView.java) for other methods and their explanations.
+Check out the [source code](../master/library/src/main/java/tr/xip/errorview/ErrorView.java) for other methods and their explanations.
 
 ###XML Attributes
 ```xml
