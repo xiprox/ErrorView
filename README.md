@@ -1,3 +1,5 @@
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-ErrorView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1285)
+
 ErrorView
 =========
 A custom view that displays an error image, a title, and a subtitle given an HTTP status code. It can be used for various other purposes like displaying other kinds of errors, or just messages with images.
