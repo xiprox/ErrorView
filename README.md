@@ -48,6 +48,9 @@ Check out the [source code](../master/library/src/main/java/tr/xip/errorview/Err
 src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png" />
 </a>
 
+#Apps using ErrorView
+Check out [this](https://github.com/xiprox/ErrorView/wiki/Apps-using-ErrorView) wiki page for the list of apps using ErrorView. If you are using ErrorView in your app, please take a moment to add your app to the list. I really appreciate it.
+
 #License
 ```
 Copyright (C) 2014 Ihsan Isik
