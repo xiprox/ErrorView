@@ -207,7 +207,7 @@ public class ErrorView extends LinearLayout {
      * @param res color resource to use for error title text.
      */
     public void setErrorTitleColor(int res){
-        mErrorTitle.setTextColor(context.getResources().getColor(res));
+        mErrorTitle.setTextColor(res);
     }
 
     /**
@@ -233,7 +233,7 @@ public class ErrorView extends LinearLayout {
      * @param res color resource to use for error subtitle text.
      */
     public void setErrorSubtitleColor(int res){
-        mErrorSubtitle.setTextColor(context.getResources().getColor(res));
+        mErrorSubtitle.setTextColor(res);
     }
 
     /**

@@ -31,8 +31,8 @@ public class MainActivity extends ActionBarActivity {
 
                 mErrorView.setError(ErrorViewStatusCodes.CODE_408);
                 mErrorView.setErrorTitle(R.string.error_title_damn);
-                mErrorView.setErrorTitleColor(android.R.color.holo_orange_dark);
-                mErrorView.setErrorSubtitleColor(android.R.color.holo_green_dark);
+                mErrorView.setErrorTitleColor(getResources().getColor(android.R.color.holo_orange_dark));
+                mErrorView.setErrorSubtitleColor(getResources().getColor(android.R.color.holo_green_dark));
             }
         });
     }
