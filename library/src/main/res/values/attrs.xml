@@ -2,9 +2,9 @@
 <resources>
     <declare-styleable name="ErrorView">
         <attr name="ev_errorTitle" format="string" />
-        <attr name="ev_errorTitleTextColor" format="color" />
+        <attr name="ev_errorTitleColor" format="color" />
         <attr name="ev_errorSubtitle" format="string" />
-        <attr name="ev_errorSubtitleTextColor" format="color" />
+        <attr name="ev_errorSubtitleColor" format="color" />
         <attr name="ev_errorImage" format="reference" />
         <attr name="ev_showTitle" format="boolean" />
         <attr name="ev_showSubtitle" format="boolean" />

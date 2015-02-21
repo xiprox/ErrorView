@@ -51,10 +51,10 @@ public class ErrorView extends LinearLayout {
     private int errorImageRes;
 
     private String errorTitle;
-    private int errorTitleTextColor;
+    private int errorTitleColor;
 
     private String errorSubtitle;
-    private int errorSubtitleTextColor;
+    private int errorSubtitleColor;
 
     private boolean showTitle;
     private boolean showSubtitle;
@@ -87,10 +87,10 @@ public class ErrorView extends LinearLayout {
         try {
             errorImageRes = a.getResourceId(R.styleable.ErrorView_ev_errorImage, R.drawable.error_view_cloud);
             errorTitle = a.getString(R.styleable.ErrorView_ev_errorTitle);
-            errorTitleTextColor = a.getColor(R.styleable.ErrorView_ev_errorTitleTextColor,
+            errorTitleColor = a.getColor(R.styleable.ErrorView_ev_errorTitleColor,
                     getResources().getColor(R.color.error_view_text));
             errorSubtitle = a.getString(R.styleable.ErrorView_ev_errorSubtitle);
-            errorSubtitleTextColor = a.getColor(R.styleable.ErrorView_ev_errorSubtitleTextColor,
+            errorSubtitleColor = a.getColor(R.styleable.ErrorView_ev_errorSubtitleColor,
                     getResources().getColor(R.color.error_view_text_light));
             showTitle = a.getBoolean(R.styleable.ErrorView_ev_showTitle, true);
             showSubtitle = a.getBoolean(R.styleable.ErrorView_ev_showSubtitle, true);
@@ -118,8 +118,8 @@ public class ErrorView extends LinearLayout {
             if (!showRetryButton)
                 mRetryButton.setVisibility(GONE);
 
-            mErrorTitle.setTextColor(errorTitleTextColor);
-            mErrorSubtitle.setTextColor(errorSubtitleTextColor);
+            mErrorTitle.setTextColor(errorTitleColor);
+            mErrorSubtitle.setTextColor(errorSubtitleColor);
 
             mRetryButton.setTextColor(retryButtonTextColor);
             mRetryButton.setBackgroundResource(retryButtonBackground);
@@ -206,8 +206,8 @@ public class ErrorView extends LinearLayout {
      *
      * @param res color resource to use for error title text.
      */
-    public void setErrorTitleTextColor(int res){
-        mErrorTitle.setTextColor(res);
+    public void setErrorTitleColor(int res){
+        mErrorTitle.setTextColor(context.getResources().getColor(res));
     }
 
     /**
@@ -232,8 +232,8 @@ public class ErrorView extends LinearLayout {
      * Sets the error subtitle text to a given color
      * @param res color resource to use for error subtitle text.
      */
-    public void setErrorSubtitleTextColor(int res){
-        mErrorSubtitle.setTextColor(res);
+    public void setErrorSubtitleColor(int res){
+        mErrorSubtitle.setTextColor(context.getResources().getColor(res));
     }
 
     /**
