@@ -274,4 +274,8 @@ public class ErrorView extends LinearLayout {
     public void showRetryButton(boolean show) {
         mRetryButton.setVisibility(show ? VISIBLE : GONE);
     }
+
+    public interface RetryListener {
+        public void onRetry();
+    }
 }
