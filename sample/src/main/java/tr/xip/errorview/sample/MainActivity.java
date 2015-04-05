@@ -7,8 +7,6 @@ import android.widget.Toast;
 
 import tr.xip.errorview.ErrorView;
 import tr.xip.errorview.HttpStatusCodes;
-import tr.xip.errorview.RetryListener;
-
 
 public class MainActivity extends ActionBarActivity {
 
@@ -19,7 +17,7 @@ public class MainActivity extends ActionBarActivity {
 
         final ErrorView mErrorView = (ErrorView) findViewById(R.id.error_view);
 
-        mErrorView.setOnRetryListener(new RetryListener() {
+        mErrorView.setOnRetryListener(new ErrorView.RetryListener() {
             @Override
             public void onRetry() {
                 Toast.makeText(MainActivity.this, R.string.info_retrying, Toast.LENGTH_SHORT).show();

@@ -136,7 +136,8 @@ public class ErrorView extends LinearLayout {
     /**
      * Attaches a listener that to the view that reports retry events.
      *
-     * @param listener {@link tr.xip.errorview.RetryListener} to be notified when retry events occur.
+     * @param listener {@link tr.xip.errorview.ErrorView.RetryListener} to be notified when a retry
+     *                 event occurs.
      */
     public void setOnRetryListener(RetryListener listener) {
         this.mListener = listener;
@@ -204,7 +205,7 @@ public class ErrorView extends LinearLayout {
      *
      * @param res color resource to use for error title text.
      */
-    public void setErrorTitleColor(int res){
+    public void setErrorTitleColor(int res) {
         mErrorTitleTextView.setTextColor(res);
     }
 
@@ -228,9 +229,10 @@ public class ErrorView extends LinearLayout {
 
     /**
      * Sets the error subtitle text to a given color
+     *
      * @param res color resource to use for error subtitle text.
      */
-    public void setErrorSubtitleColor(int res){
+    public void setErrorSubtitleColor(int res) {
         mErrorSubtitleTextView.setTextColor(res);
     }
 
