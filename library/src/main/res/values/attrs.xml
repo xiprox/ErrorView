@@ -9,6 +9,7 @@
         <attr name="ev_showTitle" format="boolean" />
         <attr name="ev_showSubtitle" format="boolean" />
         <attr name="ev_showRetryButton" format="boolean" />
+        <attr name="ev_retryButtonText" format="string" />
         <attr name="ev_retryButtonBackground" format="reference" />
         <attr name="ev_retryButtonTextColor" format="color" />
     </declare-styleable>

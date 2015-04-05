@@ -40,6 +40,7 @@ Check out the [source code](../master/library/src/main/java/tr/xip/errorview/Err
     errorview:ev_showTitle="boolean"
     errorview:ev_showSubtitle="boolean"
     errorview:ev_showRetryButton="boolean"
+    errorview:ev_retryButtonText="@string/..."
     errorview:ev_retryButtonBackground="@drawable/..."
     errorview:ev_retryButtonTextColor="@color/..." />
 ```

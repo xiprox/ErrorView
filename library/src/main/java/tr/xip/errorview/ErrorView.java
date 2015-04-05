@@ -77,6 +77,7 @@ public class ErrorView extends LinearLayout {
         boolean mShowSubtitle;
         boolean mShowRetryButton;
 
+        String retryButtonText;
         int mRetryButtonBackground;
         int mRetryButtonTextColor;
 
@@ -93,6 +94,7 @@ public class ErrorView extends LinearLayout {
             mShowTitle = a.getBoolean(R.styleable.ErrorView_ev_showTitle, true);
             mShowSubtitle = a.getBoolean(R.styleable.ErrorView_ev_showSubtitle, true);
             mShowRetryButton = a.getBoolean(R.styleable.ErrorView_ev_showRetryButton, true);
+            retryButtonText = a.getString(R.styleable.ErrorView_ev_retryButtonText);
             mRetryButtonBackground = a.getResourceId(R.styleable.ErrorView_ev_retryButtonBackground,
                     R.drawable.error_view_retry_button_background);
             mRetryButtonTextColor = a.getColor(R.styleable.ErrorView_ev_retryButtonTextColor,
@@ -106,6 +108,9 @@ public class ErrorView extends LinearLayout {
 
             if (mSubtitle != null)
                 setSubtitle(mSubtitle);
+
+            if (retryButtonText != null)
+                mRetryButton.setText(retryButtonText);
 
             if (!mShowTitle)
                 mTitleTextView.setVisibility(GONE);
