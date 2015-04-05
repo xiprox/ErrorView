@@ -201,12 +201,26 @@ public class ErrorView extends LinearLayout {
     }
 
     /**
+     * Returns the current title string.
+     */
+    public String getTitle() {
+        return mTitleTextView.getText().toString();
+    }
+
+    /**
      * Sets the error title text to a given color.
      *
      * @param res color resource to use for error title text.
      */
     public void setTitleColor(int res) {
         mTitleTextView.setTextColor(res);
+    }
+
+    /**
+     * Returns the current title text color.
+     */
+    public int getTitleColor() {
+        return mTitleTextView.getCurrentTextColor();
     }
 
     /**
@@ -228,12 +242,26 @@ public class ErrorView extends LinearLayout {
     }
 
     /**
+     * Returns the current subtitle.
+     */
+    public String getSubtitle() {
+        return mSubtitleTextView.getText().toString();
+    }
+
+    /**
      * Sets the error subtitle text to a given color
      *
      * @param res color resource to use for error subtitle text.
      */
     public void setSubtitleColor(int res) {
         mSubtitleTextView.setTextColor(res);
+    }
+
+    /**
+     * Returns the current subtitle text color.
+     */
+    public int getSubtitleColor() {
+        return mSubtitleTextView.getCurrentTextColor();
     }
 
     /**
@@ -255,10 +283,24 @@ public class ErrorView extends LinearLayout {
     }
 
     /**
+     * Returns the current retry button text.
+     */
+    public String getRetryButtonText() {
+        return mRetryButton.getText().toString();
+    }
+
+    /**
      * Shows or hides the error title
      */
     public void showTitle(boolean show) {
         mTitleTextView.setVisibility(show ? VISIBLE : GONE);
+    }
+
+    /**
+     * Indicates whether the title is currently visible.
+     */
+    public boolean isTitleVisible() {
+        return mTitleTextView.getVisibility() == VISIBLE;
     }
 
     /**
@@ -269,10 +311,24 @@ public class ErrorView extends LinearLayout {
     }
 
     /**
+     * Indicates whether the subtitle is currently visible.
+     */
+    public boolean isSubtitleVisible() {
+        return mSubtitleTextView.getVisibility() == VISIBLE;
+    }
+
+    /**
      * Shows or hides the retry button.
      */
     public void showRetryButton(boolean show) {
         mRetryButton.setVisibility(show ? VISIBLE : GONE);
+    }
+
+    /**
+     * Indicates whether the retry button is visible.
+     */
+    public boolean isRetryButtonVisible() {
+        return mRetryButton.getVisibility() == VISIBLE;
     }
 
     public interface RetryListener {
