@@ -18,7 +18,7 @@ A custom view that displays an error image, a title, and a subtitle given an HTT
 You just need to pass your HTTP status code using `setError(int)` and ErrorView will show the associated error description for you.
 
 ###Set the error manually
-In order to set the title or the subtitle manually, you can make use of the `setErrorTitle(String)`, `setErrorTite(int)`, `setErrorSubtitle(String)`, and `setErrorSubtitle(int)` methods.
+In order to set the title or the subtitle manually, you can make use of the `setTitle(String)`, `setTitle(int)`, `setSubtitle(String)`, and `setSubtitle(int)` methods.
 
 ###Catch Retry Events
 To catch retry events, you can make use of the `setOnRetryListener(RetryListener)` method.
@@ -32,14 +32,16 @@ Check out the [source code](../master/library/src/main/java/tr/xip/errorview/Err
     android:id="@+id/error_view"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    errorview:ev_title="@string/..."
+    errorview:ev_titleColor="@color/..."
+    errorview:ev_subtitle="@string/..."
+    errorview:ev_subtitleColor="@color/..."
     errorview:ev_errorImage="@drawable/..."
-    errorview:ev_errorSubtitle="@string/..."
-    errorview:ev_errorTitle="@string/..."
-    errorview:ev_retryButtonBackground="@drawable/..."
-    errorview:ev_retryButtonTextColor="@color/..."
-    errorview:ev_showRetryButton="boolean"
+    errorview:ev_showTitle="boolean"
     errorview:ev_showSubtitle="boolean"
-    errorview:ev_showTitle="boolean" />
+    errorview:ev_showRetryButton="boolean"
+    errorview:ev_retryButtonBackground="@drawable/..."
+    errorview:ev_retryButtonTextColor="@color/..." />
 ```
 
 #Sample App
