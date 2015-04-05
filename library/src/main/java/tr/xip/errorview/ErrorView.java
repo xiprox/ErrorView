@@ -39,8 +39,6 @@ import java.util.Map;
  * <p/>
  */
 public class ErrorView extends LinearLayout {
-    private Context mContext;
-
     private ImageView mErrorImageView;
     private TextView mTitleTextView;
     private TextView mSubtitleTextView;
@@ -50,14 +48,13 @@ public class ErrorView extends LinearLayout {
 
     public ErrorView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.mContext = context;
         init(attrs);
     }
 
     private void init(AttributeSet attrs) {
-        TypedArray a = mContext.getTheme().obtainStyledAttributes(attrs, R.styleable.ErrorView, 0, 0);
+        TypedArray a = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.ErrorView, 0, 0);
 
-        LayoutInflater inflater = (LayoutInflater) mContext
+        LayoutInflater inflater = (LayoutInflater) getContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.error_view_layout, this, true);
 
