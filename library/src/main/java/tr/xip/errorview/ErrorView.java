@@ -39,7 +39,6 @@ import java.util.Map;
  * <p/>
  */
 public class ErrorView extends LinearLayout {
-
     private Context mContext;
 
     private ImageView mErrorImageView;
@@ -67,65 +66,65 @@ public class ErrorView extends LinearLayout {
         mSubtitleTextView = (TextView) findViewById(R.id.error_subtitle);
         mRetryButton = (TextView) findViewById(R.id.error_retry);
 
-        String mTitle;
-        int mTitleColor;
+        int imageRes;
 
-        String mSubtitle;
-        int mSubtitleColor;
+        String title;
+        int titleColor;
 
-        boolean mShowTitle;
-        boolean mShowSubtitle;
-        boolean mShowRetryButton;
+        String subtitle;
+        int subtitleColor;
+
+        boolean showTitle;
+        boolean showSubtitle;
+        boolean showRetryButton;
 
         String retryButtonText;
-        int mRetryButtonBackground;
-        int mRetryButtonTextColor;
-
-        int mErrorImageRes;
+        int retryButtonBackground;
+        int retryButtonTextColor;
 
         try {
-            mErrorImageRes = a.getResourceId(R.styleable.ErrorView_ev_errorImage, R.drawable.error_view_cloud);
-            mTitle = a.getString(R.styleable.ErrorView_ev_title);
-            mTitleColor = a.getColor(R.styleable.ErrorView_ev_titleColor,
+            imageRes = a.getResourceId(R.styleable.ErrorView_ev_errorImage, R.drawable.error_view_cloud);
+            title = a.getString(R.styleable.ErrorView_ev_title);
+            titleColor = a.getColor(R.styleable.ErrorView_ev_titleColor,
                     getResources().getColor(R.color.error_view_text));
-            mSubtitle = a.getString(R.styleable.ErrorView_ev_subtitle);
-            mSubtitleColor = a.getColor(R.styleable.ErrorView_ev_subtitleColor,
+            subtitle = a.getString(R.styleable.ErrorView_ev_subtitle);
+            subtitleColor = a.getColor(R.styleable.ErrorView_ev_subtitleColor,
                     getResources().getColor(R.color.error_view_text_light));
-            mShowTitle = a.getBoolean(R.styleable.ErrorView_ev_showTitle, true);
-            mShowSubtitle = a.getBoolean(R.styleable.ErrorView_ev_showSubtitle, true);
-            mShowRetryButton = a.getBoolean(R.styleable.ErrorView_ev_showRetryButton, true);
+            showTitle = a.getBoolean(R.styleable.ErrorView_ev_showTitle, true);
+            showSubtitle = a.getBoolean(R.styleable.ErrorView_ev_showSubtitle, true);
+            showRetryButton = a.getBoolean(R.styleable.ErrorView_ev_showRetryButton, true);
             retryButtonText = a.getString(R.styleable.ErrorView_ev_retryButtonText);
-            mRetryButtonBackground = a.getResourceId(R.styleable.ErrorView_ev_retryButtonBackground,
+            retryButtonBackground = a.getResourceId(R.styleable.ErrorView_ev_retryButtonBackground,
                     R.drawable.error_view_retry_button_background);
-            mRetryButtonTextColor = a.getColor(R.styleable.ErrorView_ev_retryButtonTextColor,
+            retryButtonTextColor = a.getColor(R.styleable.ErrorView_ev_retryButtonTextColor,
                     getResources().getColor(R.color.error_view_text_dark));
 
-            if (mErrorImageRes != 0)
-                setImageResource(mErrorImageRes);
+            if (imageRes != 0)
+                setImageResource(imageRes);
 
-            if (mTitle != null)
-                setTitle(mTitle);
+            if (title != null)
+                setTitle(title);
 
-            if (mSubtitle != null)
-                setSubtitle(mSubtitle);
+            if (subtitle != null)
+                setSubtitle(subtitle);
 
             if (retryButtonText != null)
                 mRetryButton.setText(retryButtonText);
 
-            if (!mShowTitle)
+            if (!showTitle)
                 mTitleTextView.setVisibility(GONE);
 
-            if (!mShowSubtitle)
+            if (!showSubtitle)
                 mSubtitleTextView.setVisibility(GONE);
 
-            if (!mShowRetryButton)
+            if (!showRetryButton)
                 mRetryButton.setVisibility(GONE);
 
-            mTitleTextView.setTextColor(mTitleColor);
-            mSubtitleTextView.setTextColor(mSubtitleColor);
+            mTitleTextView.setTextColor(titleColor);
+            mSubtitleTextView.setTextColor(subtitleColor);
 
-            mRetryButton.setTextColor(mRetryButtonTextColor);
-            mRetryButton.setBackgroundResource(mRetryButtonBackground);
+            mRetryButton.setTextColor(retryButtonTextColor);
+            mRetryButton.setBackgroundResource(retryButtonBackground);
         } finally {
             a.recycle();
         }
