@@ -1,6 +1,7 @@
 package tr.xip.errorview.sample;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.Toast;
 
@@ -23,16 +24,15 @@ public class MainActivity extends ActionBarActivity {
             public void onRetry() {
                 Toast.makeText(MainActivity.this, R.string.info_retrying, Toast.LENGTH_SHORT).show();
 
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                mErrorView.setError(ErrorViewStatusCodes.CODE_408);
-                mErrorView.setErrorTitle(R.string.error_title_damn);
-                mErrorView.setErrorTitleColor(getResources().getColor(android.R.color.holo_orange_dark));
-                mErrorView.setErrorSubtitleColor(getResources().getColor(android.R.color.holo_green_dark));
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mErrorView.setError(ErrorViewStatusCodes.CODE_408);
+                        mErrorView.setErrorTitle(R.string.error_title_damn);
+                        mErrorView.setErrorTitleColor(getResources().getColor(android.R.color.holo_orange_dark));
+                        mErrorView.setErrorSubtitleColor(getResources().getColor(android.R.color.holo_green_dark));
+                    }
+                }, 5000);
             }
         });
     }
