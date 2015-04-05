@@ -47,21 +47,6 @@ public class ErrorView extends LinearLayout {
     private TextView mSubtitleTextView;
     private TextView mRetryButton;
 
-    private int mErrorImageRes;
-
-    private String mTitle;
-    private int mTitleColor;
-
-    private String mSubtitle;
-    private int mSubtitleColor;
-
-    private boolean mShowTitle;
-    private boolean mShowSubtitle;
-    private boolean mShowRetryButton;
-
-    private int mRetryButtonBackground;
-    private int mRetryButtonTextColor;
-
     private RetryListener mListener;
 
     public ErrorView(Context context, AttributeSet attrs) {
@@ -81,6 +66,21 @@ public class ErrorView extends LinearLayout {
         mTitleTextView = (TextView) findViewById(R.id.error_title);
         mSubtitleTextView = (TextView) findViewById(R.id.error_subtitle);
         mRetryButton = (TextView) findViewById(R.id.error_retry);
+
+        String mTitle;
+        int mTitleColor;
+
+        String mSubtitle;
+        int mSubtitleColor;
+
+        boolean mShowTitle;
+        boolean mShowSubtitle;
+        boolean mShowRetryButton;
+
+        int mRetryButtonBackground;
+        int mRetryButtonTextColor;
+
+        int mErrorImageRes;
 
         try {
             mErrorImageRes = a.getResourceId(R.styleable.ErrorView_ev_errorImage, R.drawable.error_view_cloud);
