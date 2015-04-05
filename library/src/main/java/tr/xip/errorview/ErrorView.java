@@ -150,7 +150,7 @@ public class ErrorView extends LinearLayout {
      * @param errorCode HTTP status code
      */
     public void setError(int errorCode) {
-        Map<Integer, String> mCodes = ErrorViewStatusCodes.getCodesMap();
+        Map<Integer, String> mCodes = HttpStatusCodes.getCodesMap();
 
         if (mCodes.containsKey(errorCode))
             setErrorSubtitle(errorCode + " " + mCodes.get(errorCode));

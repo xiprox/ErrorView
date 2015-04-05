@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Hikari on 12/31/14.
+ * HTTP error status codes.
  */
-public class ErrorViewStatusCodes {
+public class HttpStatusCodes {
 
     public static final int CODE_400 = 400;
     public static final int CODE_401 = 401;

@@ -6,7 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.widget.Toast;
 
 import tr.xip.errorview.ErrorView;
-import tr.xip.errorview.ErrorViewStatusCodes;
+import tr.xip.errorview.HttpStatusCodes;
 import tr.xip.errorview.RetryListener;
 
 
@@ -27,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        mErrorView.setError(ErrorViewStatusCodes.CODE_408);
+                        mErrorView.setError(HttpStatusCodes.CODE_408);
                         mErrorView.setErrorTitle(R.string.error_title_damn);
                         mErrorView.setErrorTitleColor(getResources().getColor(android.R.color.holo_orange_dark));
                         mErrorView.setErrorSubtitleColor(getResources().getColor(android.R.color.holo_green_dark));
