@@ -3,4 +3,9 @@
     <color name="apptheme_primary">#3F51B5</color>
     <color name="apptheme_primary_dark">#303F9F</color>
     <color name="apptheme_accent">#FF4081</color>
+
+    <color name="holo_blue_bright">#FF00DDFF</color>
+    <color name="holo_blue_dark">#FF0099CC</color>
+    <color name="holo_orange_dark">#FFFF8800</color>
+    <color name="holo_green_dark">#FF669900</color>
 </resources>

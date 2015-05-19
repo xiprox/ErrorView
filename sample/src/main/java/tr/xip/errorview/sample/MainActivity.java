@@ -27,8 +27,8 @@ public class MainActivity extends ActionBarActivity {
                     public void run() {
                         mErrorView.setError(HttpStatusCodes.CODE_408);
                         mErrorView.setTitle(R.string.error_title_damn);
-                        mErrorView.setTitleColor(getResources().getColor(android.R.color.holo_orange_dark));
-                        mErrorView.setSubtitleColor(getResources().getColor(android.R.color.holo_green_dark));
+                        mErrorView.setTitleColor(getResources().getColor(R.color.holo_orange_dark));
+                        mErrorView.setSubtitleColor(getResources().getColor(R.color.holo_green_dark));
                     }
                 }, 5000);
             }
