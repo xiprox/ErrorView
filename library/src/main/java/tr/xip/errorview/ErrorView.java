@@ -16,11 +16,13 @@
 
 package tr.xip.errorview;
 
+import android.animation.LayoutTransition;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -46,18 +48,36 @@ public class ErrorView extends LinearLayout {
 
     private RetryListener mListener;
 
-    public ErrorView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(attrs);
+    public ErrorView(Context context) {
+        this(context, null);
     }
 
-    private void init(AttributeSet attrs) {
-        TypedArray a = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.ErrorView, 0, 0);
+    public ErrorView(Context context, AttributeSet attrs) {
+        this(context, attrs, R.attr.ev_style);
+    }
+
+    public ErrorView(Context context, AttributeSet attrs, int defStyle) {
+        this(context, attrs, defStyle, 0);
+    }
+
+    public ErrorView(Context context, AttributeSet attrs, int defStyle, int defStyleRes) {
+        super(context, attrs);
+        init(attrs, defStyle, defStyleRes);
+    }
+
+    private void init(AttributeSet attrs, int defStyle, int defStyleRes) {
+        TypedArray a = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.ErrorView, defStyle, defStyleRes);
 
         LayoutInflater inflater = (LayoutInflater) getContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.error_view_layout, this, true);
+        setOrientation(VERTICAL);
+        setGravity(Gravity.CENTER);
 
+        // Set android:animateLayoutChanges="true" programmatically
+        if (android.os.Build.VERSION.SDK_INT >= 11) {
+            setLayoutTransition(new LayoutTransition());
+        }
         mErrorImageView = (ImageView) findViewById(R.id.error_image);
         mTitleTextView = (TextView) findViewById(R.id.error_title);
         mSubtitleTextView = (TextView) findViewById(R.id.error_subtitle);

@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:animateLayoutChanges="true"
-    android:gravity="center"
-    android:orientation="vertical">
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
         android:id="@+id/error_image"
@@ -46,4 +40,4 @@
         android:text="@string/error_view_retry"
         android:textColor="@color/error_view_text_dark"
         android:textStyle="bold" />
-</LinearLayout>
+</merge>
