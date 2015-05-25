@@ -53,7 +53,7 @@ public class ErrorView extends LinearLayout {
     }
 
     public ErrorView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        this(context, attrs, R.attr.ev_style);
     }
 
     public ErrorView(Context context, AttributeSet attrs, int defStyle) {

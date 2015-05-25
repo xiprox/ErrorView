@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="ErrorViewStyle">
+        <attr name="ev_style" format="reference" />
+    </declare-styleable>
+
     <declare-styleable name="ErrorView">
         <attr name="ev_title" format="string" />
         <attr name="ev_titleColor" format="color" />
