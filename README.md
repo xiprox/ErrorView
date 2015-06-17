@@ -11,7 +11,7 @@ A custom view that displays an error image, a title, and a subtitle given an HTT
 #Usage
 ###Add as a dependency
 ```groovy
-    compile 'com.github.xiprox.errorview:library:2.0.0'
+    compile 'com.github.xiprox.errorview:library:2.+'
 ````
 
 ###Set the error by HTTP Status Code
