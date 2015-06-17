@@ -15,8 +15,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:ev_subtitle="@string/error_subtitle_failed_one_more_time"
-        app:ev_titleColor="@android:color/holo_blue_dark"
-        app:ev_subtitleColor="@android:color/holo_blue_bright"
         app:ev_retryButtonText="TRY AGAIN"
         app:ev_retryButtonTextColor="@color/apptheme_accent" />
 </RelativeLayout>
