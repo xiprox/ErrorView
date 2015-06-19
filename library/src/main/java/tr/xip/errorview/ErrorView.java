@@ -196,6 +196,66 @@ public class ErrorView extends LinearLayout {
     }
 
     /**
+     * Loads ErrorView configuration from a {@link Config} object.
+     *
+     * @param config configuration to load from
+     */
+    public void setConfig(Config config) {
+        if (config.getImage() != null) {
+            Object image = config.getImage();
+            if (image instanceof Integer) {
+                setImage((int) image);
+            } else if (image instanceof Drawable) {
+                setImage((Drawable) image);
+            } else if (image instanceof Bitmap) {
+                setImage((Bitmap) image);
+            }
+        }
+
+        if (config.getTitle() != null) {
+            setTitle(config.getTitle());
+        }
+
+        if (config.getTitleColor() != 0) {
+            setTitleColor(config.getTitleColor());
+        }
+
+        if (config.getSubtitle() != null) {
+            setSubtitle(config.getSubtitle());
+        }
+
+        if (config.getSubtitleColor() != 0) {
+            setSubtitleColor(config.getSubtitleColor());
+        }
+
+        showRetryButton(config.shouldShowRetryButton());
+
+        if (config.getRetryButtonText() != null) {
+            setRetryButtonText(config.getRetryButtonText());
+        }
+
+        if (config.getRetryButtonTextColor() != 0) {
+            setRetryButtonTextColor(config.getRetryButtonTextColor());
+        }
+    }
+
+    /**
+     * Returns the current ErrorView configuration.
+     */
+    public Config getConfig() {
+        return Config.create()
+                .image(getImage())
+                .title(getTitle())
+                .titleColor(getTitleColor())
+                .subtitle(getSubtitle())
+                .subtitleColor(getSubtitleColor())
+                .retryVisible(isRetryButtonVisible())
+                .retryText(getRetryButtonText())
+                .retryTextColor(getRetryButtonTextColor())
+                .build();
+    }
+
+    /**
      * Sets error image to a given drawable resource
      *
      * @param res drawable resource.
@@ -253,6 +313,13 @@ public class ErrorView extends LinearLayout {
      */
     public void setImage(Bitmap bitmap) {
         mErrorImageView.setImageBitmap(bitmap);
+    }
+
+    /**
+     * Returns the current error iamge
+     */
+    public Drawable getImage() {
+        return mErrorImageView.getDrawable();
     }
 
     /**
@@ -363,6 +430,22 @@ public class ErrorView extends LinearLayout {
     }
 
     /**
+     * Sets the retry button's text color to a given color.
+     *
+     * @param color int color to be used as text color.
+     */
+    public void setRetryButtonTextColor(int color) {
+        mRetryButton.setTextColor(color);
+    }
+
+    /**
+     * Returns the current retry button text color.
+     */
+    public int getRetryButtonTextColor() {
+        return mRetryButton.getCurrentTextColor();
+    }
+
+    /**
      * Shows or hides the error title
      */
     public void showTitle(boolean show) {
@@ -428,6 +511,119 @@ public class ErrorView extends LinearLayout {
             return ALIGNMENT_CENTER;
         } else {
             return ALIGNMENT_RIGHT;
+        }
+    }
+
+    public static class Config {
+        private Object mImage;
+        private String mTitle;
+        private int mTitleColor;
+        private String mSubtitle;
+        private int mSubtitleColor;
+        private boolean mShowRetryButton = true;
+        private String mRetryButtonText;
+        private int mRetryButtonTextColor;
+
+        public static Builder create() {
+            return new Builder();
+        }
+
+        private Config() {
+            /* epmty */
+        }
+
+        public Object getImage() {
+            return mImage;
+        }
+
+        public String getTitle() {
+            return mTitle;
+        }
+
+        public int getTitleColor() {
+            return mTitleColor;
+        }
+
+        public String getSubtitle() {
+            return mSubtitle;
+        }
+
+        public int getSubtitleColor() {
+            return mSubtitleColor;
+        }
+
+        public boolean shouldShowRetryButton() {
+            return mShowRetryButton;
+        }
+
+        public String getRetryButtonText() {
+            return mRetryButtonText;
+        }
+
+        public int getRetryButtonTextColor() {
+            return mRetryButtonTextColor;
+        }
+
+        public static class Builder {
+            private Config config;
+
+            private Builder() {
+                config = new Config();
+            }
+
+            public Builder image(int res) {
+                config.mImage = res;
+                return this;
+            }
+
+            public Builder image(Drawable drawable) {
+                config.mImage = drawable;
+                return this;
+            }
+
+            public Builder image(Bitmap bitmap) {
+                config.mImage = bitmap;
+                return this;
+            }
+
+            public Builder title(String title) {
+                config.mTitle = title;
+                return this;
+            }
+
+            public Builder titleColor(int color) {
+                config.mTitleColor = color;
+                return this;
+            }
+
+            public Builder subtitle(String subtitle) {
+                config.mSubtitle = subtitle;
+                return this;
+            }
+
+            public Builder subtitleColor(int color) {
+                config.mSubtitleColor = color;
+                return this;
+            }
+
+            public Builder retryVisible(boolean visible) {
+                config.mShowRetryButton = visible;
+                return this;
+            }
+
+            public Builder retryText(String text) {
+                config.mRetryButtonText = text;
+                return this;
+            }
+
+            public Builder retryTextColor(int color) {
+                config.mRetryButtonTextColor = color;
+                return this;
+            }
+
+            public Config build() {
+                return config;
+            }
         }
     }
 

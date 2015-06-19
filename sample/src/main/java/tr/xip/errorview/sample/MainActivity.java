@@ -6,7 +6,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.widget.Toast;
 
 import tr.xip.errorview.ErrorView;
-import tr.xip.errorview.HttpStatusCodes;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -25,13 +24,19 @@ public class MainActivity extends ActionBarActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        mErrorView.setError(HttpStatusCodes.CODE_408);
-                        mErrorView.setTitle(R.string.error_title_damn);
-                        mErrorView.setTitleColor(getResources().getColor(android.R.color.holo_orange_dark));
-                        mErrorView.setSubtitleColor(getResources().getColor(android.R.color.holo_green_dark));
+                        mErrorView.setConfig(ErrorView.Config.create()
+                                .title(getString(R.string.error_title_damn))
+                                .titleColor(getColor(R.color.apptheme_primary))
+                                .subtitle(getString(R.string.error_subtitle_failed_one_more_time))
+                                .retryText(getString(R.string.error_view_retry))
+                                .build());
                     }
                 }, 5000);
             }
         });
+    }
+
+    public int getColor(int res) {
+        return getResources().getColor(res);
     }
 }
