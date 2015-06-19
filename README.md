@@ -20,6 +20,32 @@ You just need to pass your HTTP status code using `setError(int)` and ErrorView 
 ###Set the error manually
 In order to set the title or the subtitle manually, you can make use of the `setTitle(String)`, `setTitle(int)`, `setSubtitle(String)`, and `setSubtitle(int)` methods.
 
+###Configs
+Configs are like packages that hold the ErrorView state. You can use configs to define a very common error and reuse it all around your app.
+
+```java
+    mErrorView.setConfig(Config);
+```
+```java
+    mErrorView.getConfig();
+```
+
+####Defining a Config
+```java
+    ErrorView.Config.create()
+            .image(int)
+            .image(Drawable)
+            .image(Bitmap)
+            .title(String)
+            .titleColor(int)
+            .subtitle(String)
+            .subtitleColor(int)
+            .retryVisible(boolean)
+            .retryText(String)
+            .retryTextColor(int)
+            .build();
+```
+
 ###Catch Retry Events
 To catch retry events, you can make use of the `setOnRetryListener(RetryListener)` method.
 
