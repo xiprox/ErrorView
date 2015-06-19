@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -78,10 +79,11 @@ public class ErrorView extends LinearLayout {
         setOrientation(VERTICAL);
         setGravity(Gravity.CENTER);
 
-        // Set android:animateLayoutChanges="true" programmatically
-        if (android.os.Build.VERSION.SDK_INT >= 11) {
+        /* Set android:animateLayoutChanges="true" programmatically */
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             setLayoutTransition(new LayoutTransition());
         }
+
         mErrorImageView = (ImageView) findViewById(R.id.error_image);
         mTitleTextView = (TextView) findViewById(R.id.error_title);
         mSubtitleTextView = (TextView) findViewById(R.id.error_subtitle);
@@ -121,26 +123,33 @@ public class ErrorView extends LinearLayout {
                     getResources().getColor(R.color.error_view_text_dark));
             int alignInt = a.getInt(R.styleable.ErrorView_ev_subtitleAlignment, 1);
 
-            if (imageRes != 0)
+            if (imageRes != 0) {
                 setImage(imageRes);
+            }
 
-            if (title != null)
+            if (title != null) {
                 setTitle(title);
+            }
 
-            if (subtitle != null)
+            if (subtitle != null) {
                 setSubtitle(subtitle);
+            }
 
-            if (retryButtonText != null)
+            if (retryButtonText != null) {
                 mRetryButton.setText(retryButtonText);
+            }
 
-            if (!showTitle)
+            if (!showTitle) {
                 mTitleTextView.setVisibility(GONE);
+            }
 
-            if (!showSubtitle)
+            if (!showSubtitle) {
                 mSubtitleTextView.setVisibility(GONE);
+            }
 
-            if (!showRetryButton)
+            if (!showRetryButton) {
                 mRetryButton.setVisibility(GONE);
+            }
 
             mTitleTextView.setTextColor(titleColor);
             mSubtitleTextView.setTextColor(subtitleColor);
@@ -156,7 +165,9 @@ public class ErrorView extends LinearLayout {
         mRetryButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mListener != null) mListener.onRetry();
+                if (mListener != null) {
+                    mListener.onRetry();
+                }
             }
         });
     }
@@ -168,7 +179,7 @@ public class ErrorView extends LinearLayout {
      *                 event occurs.
      */
     public void setOnRetryListener(RetryListener listener) {
-        this.mListener = listener;
+        mListener = listener;
     }
 
     /**
@@ -179,8 +190,9 @@ public class ErrorView extends LinearLayout {
     public void setError(int errorCode) {
         Map<Integer, String> mCodes = HttpStatusCodes.getCodesMap();
 
-        if (mCodes.containsKey(errorCode))
+        if (mCodes.containsKey(errorCode)) {
             setSubtitle(errorCode + " " + mCodes.get(errorCode));
+        }
     }
 
     /**
@@ -420,6 +432,6 @@ public class ErrorView extends LinearLayout {
     }
 
     public interface RetryListener {
-        public void onRetry();
+        void onRetry();
     }
 }
