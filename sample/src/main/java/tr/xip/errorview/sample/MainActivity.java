@@ -26,7 +26,7 @@ public class MainActivity extends ActionBarActivity {
                     public void run() {
                         mErrorView.setConfig(ErrorView.Config.create()
                                 .title(getString(R.string.error_title_damn))
-                                .titleColor(getColor(R.color.apptheme_primary))
+                                .titleColor(getResources().getColor(R.color.apptheme_primary))
                                 .subtitle(getString(R.string.error_subtitle_failed_one_more_time))
                                 .retryText(getString(R.string.error_view_retry))
                                 .build());
@@ -34,9 +34,5 @@ public class MainActivity extends ActionBarActivity {
                 }, 5000);
             }
         });
-    }
-
-    public int getColor(int res) {
-        return getResources().getColor(res);
     }
 }
