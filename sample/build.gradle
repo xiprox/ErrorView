@@ -8,8 +8,8 @@ android {
         applicationId "tr.xip.errorview.sample"
         minSdkVersion 8
         targetSdkVersion 23
-        versionCode Integer.parseInt(project.VERSION_CODE)
-        versionName project.VERSION_NAME
+        versionCode 5
+        versionName "2.2.0.1"
     }
     buildTypes {
         release {
