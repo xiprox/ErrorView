@@ -10,6 +10,10 @@ android {
         versionCode Integer.parseInt(project.VERSION_CODE)
         versionName project.VERSION_NAME
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 // Used to upload project to maven central
