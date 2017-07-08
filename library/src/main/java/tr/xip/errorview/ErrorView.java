@@ -90,29 +90,29 @@ public class ErrorView extends LinearLayout {
         String subtitle;
         int subtitleColor;
 
-        boolean showTitle;
-        boolean showSubtitle;
-        boolean showRetryButton;
+        boolean titleVisible;
+        boolean subtitleVisible;
+        boolean retryVisible;
 
-        String retryButtonText;
-        int retryButtonBackground;
-        int retryButtonTextColor;
+        String retryText;
+        int retryBackground;
+        int retryColor;
 
         try {
             imageRes = a.getResourceId(R.styleable.ErrorView_ev_image, R.drawable.error_view_cloud);
             title = a.getString(R.styleable.ErrorView_ev_title);
             titleColor = a.getColor(R.styleable.ErrorView_ev_titleColor,
                     getResources().getColor(R.color.error_view_text));
+            titleVisible = a.getBoolean(R.styleable.ErrorView_ev_titleVisible, true);
             subtitle = a.getString(R.styleable.ErrorView_ev_subtitle);
             subtitleColor = a.getColor(R.styleable.ErrorView_ev_subtitleColor,
                     getResources().getColor(R.color.error_view_text_light));
-            showTitle = a.getBoolean(R.styleable.ErrorView_ev_titleVisible, true);
-            showSubtitle = a.getBoolean(R.styleable.ErrorView_ev_subtitleVisible, true);
-            showRetryButton = a.getBoolean(R.styleable.ErrorView_ev_retryVisible, true);
-            retryButtonText = a.getString(R.styleable.ErrorView_ev_retryText);
-            retryButtonBackground = a.getResourceId(R.styleable.ErrorView_ev_retryBackground,
+            subtitleVisible = a.getBoolean(R.styleable.ErrorView_ev_subtitleVisible, true);
+            retryVisible = a.getBoolean(R.styleable.ErrorView_ev_retryVisible, true);
+            retryText = a.getString(R.styleable.ErrorView_ev_retryText);
+            retryBackground = a.getResourceId(R.styleable.ErrorView_ev_retryBackground,
                     R.drawable.error_view_retry_button_background);
-            retryButtonTextColor = a.getColor(R.styleable.ErrorView_ev_retryColor,
+            retryColor = a.getColor(R.styleable.ErrorView_ev_retryColor,
                     getResources().getColor(R.color.error_view_text_dark));
 
             if (imageRes != 0) {
@@ -127,27 +127,27 @@ public class ErrorView extends LinearLayout {
                 setSubtitle(subtitle);
             }
 
-            if (retryButtonText != null) {
-                retryView.setText(retryButtonText);
+            if (retryText != null) {
+                retryView.setText(retryText);
             }
 
-            if (!showTitle) {
+            if (!titleVisible) {
                 titleView.setVisibility(GONE);
             }
 
-            if (!showSubtitle) {
+            if (!subtitleVisible) {
                 subtitleView.setVisibility(GONE);
             }
 
-            if (!showRetryButton) {
+            if (!retryVisible) {
                 retryView.setVisibility(GONE);
             }
 
             titleView.setTextColor(titleColor);
             subtitleView.setTextColor(subtitleColor);
 
-            retryView.setTextColor(retryButtonTextColor);
-            retryView.setBackgroundResource(retryButtonBackground);
+            retryView.setTextColor(retryColor);
+            retryView.setBackgroundResource(retryBackground);
         } finally {
             a.recycle();
         }
