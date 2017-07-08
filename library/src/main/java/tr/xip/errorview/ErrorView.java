@@ -228,8 +228,8 @@ public class ErrorView extends LinearLayout {
     /**
      * Sets the error subtitle to a given {@link java.lang.String}.
      */
-    public void setSubtitle(String exception) {
-        subtitleView.setText(exception);
+    public void setSubtitle(String subtitle) {
+        subtitleView.setText(subtitle);
     }
 
     /**
