@@ -39,12 +39,12 @@ import android.widget.TextView;
  * <p/>
  */
 public class ErrorView extends LinearLayout {
-    private ImageView mErrorImageView;
-    private TextView mTitleTextView;
-    private TextView mSubtitleTextView;
-    private TextView mRetryButton;
+    private ImageView imageView;
+    private TextView titleView;
+    private TextView subtitleView;
+    private TextView retryView;
 
-    private RetryListener mListener;
+    private RetryListener retryListener;
 
     public ErrorView(Context context) {
         this(context, null);
@@ -77,10 +77,10 @@ public class ErrorView extends LinearLayout {
             setLayoutTransition(new LayoutTransition());
         }
 
-        mErrorImageView = (ImageView) findViewById(R.id.error_image);
-        mTitleTextView = (TextView) findViewById(R.id.error_title);
-        mSubtitleTextView = (TextView) findViewById(R.id.error_subtitle);
-        mRetryButton = (TextView) findViewById(R.id.error_retry);
+        imageView = (ImageView) findViewById(R.id.error_image);
+        titleView = (TextView) findViewById(R.id.error_title);
+        subtitleView = (TextView) findViewById(R.id.error_subtitle);
+        retryView = (TextView) findViewById(R.id.error_retry);
 
         int imageRes;
 
@@ -128,35 +128,35 @@ public class ErrorView extends LinearLayout {
             }
 
             if (retryButtonText != null) {
-                mRetryButton.setText(retryButtonText);
+                retryView.setText(retryButtonText);
             }
 
             if (!showTitle) {
-                mTitleTextView.setVisibility(GONE);
+                titleView.setVisibility(GONE);
             }
 
             if (!showSubtitle) {
-                mSubtitleTextView.setVisibility(GONE);
+                subtitleView.setVisibility(GONE);
             }
 
             if (!showRetryButton) {
-                mRetryButton.setVisibility(GONE);
+                retryView.setVisibility(GONE);
             }
 
-            mTitleTextView.setTextColor(titleColor);
-            mSubtitleTextView.setTextColor(subtitleColor);
+            titleView.setTextColor(titleColor);
+            subtitleView.setTextColor(subtitleColor);
 
-            mRetryButton.setTextColor(retryButtonTextColor);
-            mRetryButton.setBackgroundResource(retryButtonBackground);
+            retryView.setTextColor(retryButtonTextColor);
+            retryView.setBackgroundResource(retryButtonBackground);
         } finally {
             a.recycle();
         }
 
-        mRetryButton.setOnClickListener(new OnClickListener() {
+        retryView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mListener != null) {
-                    mListener.onRetry();
+                if (retryListener != null) {
+                    retryListener.onRetry();
                 }
             }
         });
@@ -169,7 +169,7 @@ public class ErrorView extends LinearLayout {
      *                 event occurs.
      */
     public void setOnRetryListener(RetryListener listener) {
-        mListener = listener;
+        retryListener = listener;
     }
 
     /**
@@ -211,7 +211,7 @@ public class ErrorView extends LinearLayout {
      * @param res drawable resource.
      */
     public void setImage(int res) {
-        mErrorImageView.setImageResource(res);
+        imageView.setImageResource(res);
     }
 
     /**
@@ -220,7 +220,7 @@ public class ErrorView extends LinearLayout {
      * @param drawable {@link android.graphics.drawable.Drawable} to use as error image.
      */
     public void setImage(Drawable drawable) {
-        mErrorImageView.setImageDrawable(drawable);
+        imageView.setImageDrawable(drawable);
     }
 
     /**
@@ -229,14 +229,14 @@ public class ErrorView extends LinearLayout {
      * @param bitmap {@link android.graphics.Bitmap} to use as error image.
      */
     public void setImage(Bitmap bitmap) {
-        mErrorImageView.setImageBitmap(bitmap);
+        imageView.setImageBitmap(bitmap);
     }
 
     /**
      * Returns the current error iamge
      */
     public Drawable getImage() {
-        return mErrorImageView.getDrawable();
+        return imageView.getDrawable();
     }
 
     /**
@@ -245,7 +245,7 @@ public class ErrorView extends LinearLayout {
      * @param text {@link java.lang.String} to use as error title.
      */
     public void setTitle(String text) {
-        mTitleTextView.setText(text);
+        titleView.setText(text);
     }
 
     /**
@@ -254,14 +254,14 @@ public class ErrorView extends LinearLayout {
      * @param res string resource to use as error title.
      */
     public void setTitle(int res) {
-        mTitleTextView.setText(res);
+        titleView.setText(res);
     }
 
     /**
      * Returns the current title string.
      */
     public String getTitle() {
-        return mTitleTextView.getText().toString();
+        return titleView.getText().toString();
     }
 
     /**
@@ -270,14 +270,14 @@ public class ErrorView extends LinearLayout {
      * @param res color resource to use for error title text.
      */
     public void setTitleColor(int res) {
-        mTitleTextView.setTextColor(res);
+        titleView.setTextColor(res);
     }
 
     /**
      * Returns the current title text color.
      */
     public int getTitleColor() {
-        return mTitleTextView.getCurrentTextColor();
+        return titleView.getCurrentTextColor();
     }
 
     /**
@@ -286,7 +286,7 @@ public class ErrorView extends LinearLayout {
      * @param exception {@link java.lang.String} to use as error subtitle.
      */
     public void setSubtitle(String exception) {
-        mSubtitleTextView.setText(exception);
+        subtitleView.setText(exception);
     }
 
     /**
@@ -295,14 +295,14 @@ public class ErrorView extends LinearLayout {
      * @param res string resource to use as error subtitle.
      */
     public void setSubtitle(int res) {
-        mSubtitleTextView.setText(res);
+        subtitleView.setText(res);
     }
 
     /**
      * Returns the current subtitle.
      */
     public String getSubtitle() {
-        return mSubtitleTextView.getText().toString();
+        return subtitleView.getText().toString();
     }
 
     /**
@@ -311,14 +311,14 @@ public class ErrorView extends LinearLayout {
      * @param res color resource to use for error subtitle text.
      */
     public void setSubtitleColor(int res) {
-        mSubtitleTextView.setTextColor(res);
+        subtitleView.setTextColor(res);
     }
 
     /**
      * Returns the current subtitle text color.
      */
     public int getSubtitleColor() {
-        return mSubtitleTextView.getCurrentTextColor();
+        return subtitleView.getCurrentTextColor();
     }
 
     /**
@@ -327,7 +327,7 @@ public class ErrorView extends LinearLayout {
      * @param text {@link java.lang.String} to use as retry button text.
      */
     public void setRetryButtonText(String text) {
-        mRetryButton.setText(text);
+        retryView.setText(text);
     }
 
     /**
@@ -336,14 +336,14 @@ public class ErrorView extends LinearLayout {
      * @param res string resource to be used as retry button text.
      */
     public void setRetryButtonText(int res) {
-        mRetryButton.setText(res);
+        retryView.setText(res);
     }
 
     /**
      * Returns the current retry button text.
      */
     public String getRetryButtonText() {
-        return mRetryButton.getText().toString();
+        return retryView.getText().toString();
     }
 
     /**
@@ -352,56 +352,56 @@ public class ErrorView extends LinearLayout {
      * @param color int color to be used as text color.
      */
     public void setRetryButtonTextColor(int color) {
-        mRetryButton.setTextColor(color);
+        retryView.setTextColor(color);
     }
 
     /**
      * Returns the current retry button text color.
      */
     public int getRetryButtonTextColor() {
-        return mRetryButton.getCurrentTextColor();
+        return retryView.getCurrentTextColor();
     }
 
     /**
      * Shows or hides the error title
      */
     public void showTitle(boolean show) {
-        mTitleTextView.setVisibility(show ? VISIBLE : GONE);
+        titleView.setVisibility(show ? VISIBLE : GONE);
     }
 
     /**
      * Indicates whether the title is currently visible.
      */
     public boolean isTitleVisible() {
-        return mTitleTextView.getVisibility() == VISIBLE;
+        return titleView.getVisibility() == VISIBLE;
     }
 
     /**
      * Shows or hides error subtitle.
      */
     public void showSubtitle(boolean show) {
-        mSubtitleTextView.setVisibility(show ? VISIBLE : GONE);
+        subtitleView.setVisibility(show ? VISIBLE : GONE);
     }
 
     /**
      * Indicates whether the subtitle is currently visible.
      */
     public boolean isSubtitleVisible() {
-        return mSubtitleTextView.getVisibility() == VISIBLE;
+        return subtitleView.getVisibility() == VISIBLE;
     }
 
     /**
      * Shows or hides the retry button.
      */
     public void showRetryButton(boolean show) {
-        mRetryButton.setVisibility(show ? VISIBLE : GONE);
+        retryView.setVisibility(show ? VISIBLE : GONE);
     }
 
     /**
      * Indicates whether the retry button is visible.
      */
     public boolean isRetryButtonVisible() {
-        return mRetryButton.getVisibility() == VISIBLE;
+        return retryView.getVisibility() == VISIBLE;
     }
 
     public interface RetryListener {
