@@ -184,6 +184,20 @@ public class ErrorView extends LinearLayout {
     }
 
     /**
+     * Shows or hides the error image.
+     */
+    public void setImageVisible(boolean visible) {
+        imageView.setVisibility(visible ? VISIBLE : GONE);
+    }
+
+    /**
+     * Indicates whether the title is currently visible.
+     */
+    public boolean isImageVisible() {
+        return imageView.getVisibility() == VISIBLE;
+    }
+
+    /**
      * Sets the error title to a given {@link java.lang.String}.
      */
     public void setTitle(String text) {
