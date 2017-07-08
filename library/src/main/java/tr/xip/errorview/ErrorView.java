@@ -30,15 +30,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.Map;
-
 /**
  * @author Ihsan Isik
  *         <p/>
  *         A custom view that displays an error image, a title, and a subtitle given an HTTP status
  *         code. It can be used for various other purposes like displaying other kinds of errors or
  *         just messages with images.
- * @see #setError(int)
  * <p/>
  */
 public class ErrorView extends LinearLayout {
@@ -173,19 +170,6 @@ public class ErrorView extends LinearLayout {
      */
     public void setOnRetryListener(RetryListener listener) {
         mListener = listener;
-    }
-
-    /**
-     * Sets error subtitle to the description of the given HTTP status code
-     *
-     * @param errorCode HTTP status code
-     */
-    public void setError(int errorCode) {
-        Map<Integer, String> mCodes = HttpStatusCodes.getCodesMap();
-
-        if (mCodes.containsKey(errorCode)) {
-            setSubtitle(errorCode + " " + mCodes.get(errorCode));
-        }
     }
 
     /**
