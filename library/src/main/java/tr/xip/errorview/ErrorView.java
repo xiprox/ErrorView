@@ -36,7 +36,7 @@ import android.widget.TextView;
  *         A custom view that displays an error image, a title, and a subtitle given an HTTP status
  *         code. It can be used for various other purposes like displaying other kinds of errors or
  *         just messages with images.
- * <p/>
+ *         <p/>
  */
 public class ErrorView extends LinearLayout {
     private ImageView imageView;
@@ -99,20 +99,20 @@ public class ErrorView extends LinearLayout {
         int retryButtonTextColor;
 
         try {
-            imageRes = a.getResourceId(R.styleable.ErrorView_ev_errorImage, R.drawable.error_view_cloud);
+            imageRes = a.getResourceId(R.styleable.ErrorView_ev_image, R.drawable.error_view_cloud);
             title = a.getString(R.styleable.ErrorView_ev_title);
             titleColor = a.getColor(R.styleable.ErrorView_ev_titleColor,
                     getResources().getColor(R.color.error_view_text));
             subtitle = a.getString(R.styleable.ErrorView_ev_subtitle);
             subtitleColor = a.getColor(R.styleable.ErrorView_ev_subtitleColor,
                     getResources().getColor(R.color.error_view_text_light));
-            showTitle = a.getBoolean(R.styleable.ErrorView_ev_showTitle, true);
-            showSubtitle = a.getBoolean(R.styleable.ErrorView_ev_showSubtitle, true);
-            showRetryButton = a.getBoolean(R.styleable.ErrorView_ev_showRetryButton, true);
-            retryButtonText = a.getString(R.styleable.ErrorView_ev_retryButtonText);
-            retryButtonBackground = a.getResourceId(R.styleable.ErrorView_ev_retryButtonBackground,
+            showTitle = a.getBoolean(R.styleable.ErrorView_ev_titleVisible, true);
+            showSubtitle = a.getBoolean(R.styleable.ErrorView_ev_subtitleVisible, true);
+            showRetryButton = a.getBoolean(R.styleable.ErrorView_ev_retryVisible, true);
+            retryButtonText = a.getString(R.styleable.ErrorView_ev_retryText);
+            retryButtonBackground = a.getResourceId(R.styleable.ErrorView_ev_retryBackground,
                     R.drawable.error_view_retry_button_background);
-            retryButtonTextColor = a.getColor(R.styleable.ErrorView_ev_retryButtonTextColor,
+            retryButtonTextColor = a.getColor(R.styleable.ErrorView_ev_retryColor,
                     getResources().getColor(R.color.error_view_text_dark));
 
             if (imageRes != 0) {
