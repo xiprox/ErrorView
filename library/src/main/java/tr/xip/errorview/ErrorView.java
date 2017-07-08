@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 Ihsan Isik
+ * Copyright (C) 2017 İhsan Işık
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,12 +32,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
- * @author Ihsan Isik
- *         <p/>
- *         A custom view that displays an error image, a title, and a subtitle given an HTTP status
- *         code. It can be used for various other purposes like displaying other kinds of errors or
- *         just messages with images.
- *         <p/>
+ * A custom view that displays an image, a title, and a subtitle. It can be used for various
+ * purposes like displaying errors, empty states, or just messages with images.
  */
 public class ErrorView extends LinearLayout {
     private ImageView imageView;
