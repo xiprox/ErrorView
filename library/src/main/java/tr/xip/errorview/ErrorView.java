@@ -176,39 +176,6 @@ public class ErrorView extends LinearLayout {
      * Sets error image to a given drawable resource
      *
      * @param res drawable resource.
-     * @deprecated Use {@link #setImage(int)} instead.
-     */
-    @Deprecated
-    public void setImageResource(int res) {
-        setImage(res);
-    }
-
-    /**
-     * Sets the error image to a given {@link android.graphics.drawable.Drawable}.
-     *
-     * @param drawable {@link android.graphics.drawable.Drawable} to use as error image.
-     * @deprecated Use {@link #setImage(Drawable)} instead.
-     */
-    @Deprecated
-    public void setImageDrawable(Drawable drawable) {
-        setImage(drawable);
-    }
-
-    /**
-     * Sets the error image to a given {@link android.graphics.Bitmap}.
-     *
-     * @param bitmap {@link android.graphics.Bitmap} to use as error image.
-     * @deprecated Use {@link #setImage(Bitmap)} instead.
-     */
-    @Deprecated
-    public void setImageBitmap(Bitmap bitmap) {
-        setImage(bitmap);
-    }
-
-    /**
-     * Sets error image to a given drawable resource
-     *
-     * @param res drawable resource.
      */
     public void setImage(int res) {
         imageView.setImageResource(res);
