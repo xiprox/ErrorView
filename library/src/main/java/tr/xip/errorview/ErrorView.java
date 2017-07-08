@@ -20,6 +20,7 @@ import android.animation.LayoutTransition;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -83,6 +84,7 @@ public class ErrorView extends LinearLayout {
         retryView = (TextView) findViewById(R.id.error_retry);
 
         int imageRes;
+        int imageTint;
         boolean imageVisible;
 
         String title;
@@ -101,6 +103,7 @@ public class ErrorView extends LinearLayout {
 
         try {
             imageRes = a.getResourceId(R.styleable.ErrorView_ev_image, R.drawable.error_view_cloud);
+            imageTint = a.getColor(R.styleable.ErrorView_ev_imageTint, 0);
             imageVisible = a.getBoolean(R.styleable.ErrorView_ev_imageVisible, true);
             title = a.getString(R.styleable.ErrorView_ev_title);
             titleColor = a.getColor(R.styleable.ErrorView_ev_titleColor,
@@ -119,6 +122,9 @@ public class ErrorView extends LinearLayout {
 
             if (imageRes != 0) {
                 setImage(imageRes);
+            }
+            if (imageTint != 0) {
+                setImageTint(imageTint);
             }
             setImageVisible(imageVisible);
 
@@ -184,6 +190,13 @@ public class ErrorView extends LinearLayout {
      */
     public void setImage(Bitmap bitmap) {
         imageView.setImageBitmap(bitmap);
+    }
+
+    /**
+     * Tints the error image with given color.
+     */
+    public void setImageTint(int color) {
+        imageView.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
     }
 
     /**

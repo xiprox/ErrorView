@@ -6,6 +6,7 @@
 
     <declare-styleable name="ErrorView">
         <attr name="ev_image" format="reference" />
+        <attr name="ev_imageTint" format="color" />
         <attr name="ev_imageVisible" format="boolean" />
         <attr name="ev_title" format="string" />
         <attr name="ev_titleColor" format="color" />
