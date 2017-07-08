@@ -329,6 +329,27 @@ public class ErrorView extends LinearLayout {
     }
 
     /**
+     * Sets the retry button text to a given string.
+     */
+    public void setRetryText(String text) {
+        retryView.setText(text);
+    }
+
+    /**
+     * Sets the retry button text to a given string resource.
+     */
+    public void setRetryText(int res) {
+        retryView.setText(res);
+    }
+
+    /**
+     * Returns the retry button text.
+     */
+    public CharSequence getRetryText() {
+        return retryView.getText();
+    }
+
+    /**
      * Sets the retry button's text color to a given color.
      */
     public void setRetryColor(int color) {
@@ -450,6 +471,16 @@ public class ErrorView extends LinearLayout {
 
         public Builder showRetry(boolean show) {
             errorView.setRetryVisible(show);
+            return this;
+        }
+
+        public Builder retryText(String text) {
+            errorView.setRetryText(text);
+            return this;
+        }
+
+        public Builder retryText(int textRes) {
+            errorView.setRetryText(textRes);
             return this;
         }
 
