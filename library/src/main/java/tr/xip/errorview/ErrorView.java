@@ -83,6 +83,7 @@ public class ErrorView extends LinearLayout {
         retryView = (TextView) findViewById(R.id.error_retry);
 
         int imageRes;
+        boolean imageVisible;
 
         String title;
         int titleColor;
@@ -100,6 +101,7 @@ public class ErrorView extends LinearLayout {
 
         try {
             imageRes = a.getResourceId(R.styleable.ErrorView_ev_image, R.drawable.error_view_cloud);
+            imageVisible = a.getBoolean(R.styleable.ErrorView_ev_imageVisible, true);
             title = a.getString(R.styleable.ErrorView_ev_title);
             titleColor = a.getColor(R.styleable.ErrorView_ev_titleColor,
                     getResources().getColor(R.color.error_view_text));
@@ -118,6 +120,7 @@ public class ErrorView extends LinearLayout {
             if (imageRes != 0) {
                 setImage(imageRes);
             }
+            setImageVisible(imageVisible);
 
             if (title != null) {
                 setTitle(title);
