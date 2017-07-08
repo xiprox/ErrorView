@@ -240,6 +240,7 @@ public class ErrorView extends LinearLayout {
      * Sets the error title to a given {@link java.lang.String}.
      */
     public void setTitle(String text) {
+        setTitleVisible(text != null);
         titleView.setText(text);
     }
 
@@ -247,6 +248,9 @@ public class ErrorView extends LinearLayout {
      * Sets the error title to a given string resource.
      */
     public void setTitle(int res) {
+        // An exception will be thrown if the res isn't found anyways so it's safe to just go ahead
+        // and make the title visible.
+        setTitleVisible(true);
         titleView.setText(res);
     }
 
@@ -282,6 +286,7 @@ public class ErrorView extends LinearLayout {
      * Sets the error subtitle to a given {@link java.lang.String}.
      */
     public void setSubtitle(String subtitle) {
+        setSubtitleVisible(subtitle != null);
         subtitleView.setText(subtitle);
     }
 
@@ -289,6 +294,9 @@ public class ErrorView extends LinearLayout {
      * Sets the error subtitle to a given string resource.
      */
     public void setSubtitle(int res) {
+        // An exception will be thrown if the res isn't found anyways so it's safe to just go ahead
+        // and make the title visible.
+        setSubtitleVisible(true);
         subtitleView.setText(res);
     }
 
