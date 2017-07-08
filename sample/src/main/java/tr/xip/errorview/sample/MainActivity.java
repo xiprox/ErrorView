@@ -31,7 +31,7 @@ public class MainActivity extends ActionBarActivity {
                                 .retryText(R.string.error_view_retry);
 
                     }
-                }, 5000);
+                }, 2000);
             }
         });
     }
