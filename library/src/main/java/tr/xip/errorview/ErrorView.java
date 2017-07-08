@@ -42,10 +42,6 @@ import java.util.Map;
  * <p/>
  */
 public class ErrorView extends LinearLayout {
-    public static final int ALIGNMENT_LEFT = 0;
-    public static final int ALIGNMENT_CENTER = 1;
-    public static final int ALIGNMENT_RIGHT = 2;
-
     private ImageView mErrorImageView;
     private TextView mTitleTextView;
     private TextView mSubtitleTextView;
@@ -121,7 +117,6 @@ public class ErrorView extends LinearLayout {
                     R.drawable.error_view_retry_button_background);
             retryButtonTextColor = a.getColor(R.styleable.ErrorView_ev_retryButtonTextColor,
                     getResources().getColor(R.color.error_view_text_dark));
-            int alignInt = a.getInt(R.styleable.ErrorView_ev_subtitleAlignment, 1);
 
             if (imageRes != 0) {
                 setImage(imageRes);
@@ -156,8 +151,6 @@ public class ErrorView extends LinearLayout {
 
             mRetryButton.setTextColor(retryButtonTextColor);
             mRetryButton.setBackgroundResource(retryButtonBackground);
-
-            setSubtitleAlignment(alignInt);
         } finally {
             a.recycle();
         }
@@ -425,33 +418,6 @@ public class ErrorView extends LinearLayout {
      */
     public boolean isRetryButtonVisible() {
         return mRetryButton.getVisibility() == VISIBLE;
-    }
-
-    /**
-     * Sets the subtitle's alignment to a given value
-     */
-    public void setSubtitleAlignment(int alignment) {
-        if (alignment == ALIGNMENT_LEFT) {
-            mSubtitleTextView.setGravity(Gravity.LEFT);
-        } else if (alignment == ALIGNMENT_CENTER) {
-            mSubtitleTextView.setGravity(Gravity.CENTER_HORIZONTAL);
-        } else {
-            mSubtitleTextView.setGravity(Gravity.RIGHT);
-        }
-    }
-
-    /**
-     * Returns the current subtitle allignment
-     */
-    public int getSubtitleAlignment() {
-        int gravity = mSubtitleTextView.getGravity();
-        if (gravity == Gravity.LEFT) {
-            return ALIGNMENT_LEFT;
-        } else if (gravity == Gravity.CENTER_HORIZONTAL) {
-            return ALIGNMENT_CENTER;
-        } else {
-            return ALIGNMENT_RIGHT;
-        }
     }
 
     public interface RetryListener {
