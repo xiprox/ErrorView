@@ -163,9 +163,7 @@ public class ErrorView extends LinearLayout {
     }
 
     /**
-     * Sets error image to a given drawable resource
-     *
-     * @param res drawable resource.
+     * Sets error image to a given drawable resource.
      */
     public void setImage(int res) {
         imageView.setImageResource(res);
@@ -173,8 +171,6 @@ public class ErrorView extends LinearLayout {
 
     /**
      * Sets the error image to a given {@link android.graphics.drawable.Drawable}.
-     *
-     * @param drawable {@link android.graphics.drawable.Drawable} to use as error image.
      */
     public void setImage(Drawable drawable) {
         imageView.setImageDrawable(drawable);
@@ -182,8 +178,6 @@ public class ErrorView extends LinearLayout {
 
     /**
      * Sets the error image to a given {@link android.graphics.Bitmap}.
-     *
-     * @param bitmap {@link android.graphics.Bitmap} to use as error image.
      */
     public void setImage(Bitmap bitmap) {
         imageView.setImageBitmap(bitmap);
@@ -191,8 +185,6 @@ public class ErrorView extends LinearLayout {
 
     /**
      * Sets the error title to a given {@link java.lang.String}.
-     *
-     * @param text {@link java.lang.String} to use as error title.
      */
     public void setTitle(String text) {
         titleView.setText(text);
@@ -200,8 +192,6 @@ public class ErrorView extends LinearLayout {
 
     /**
      * Sets the error title to a given string resource.
-     *
-     * @param res string resource to use as error title.
      */
     public void setTitle(int res) {
         titleView.setText(res);
@@ -216,8 +206,6 @@ public class ErrorView extends LinearLayout {
 
     /**
      * Sets the error title text to a given color.
-     *
-     * @param res color resource to use for error title text.
      */
     public void setTitleColor(int res) {
         titleView.setTextColor(res);
@@ -239,8 +227,6 @@ public class ErrorView extends LinearLayout {
 
     /**
      * Sets the error subtitle to a given {@link java.lang.String}.
-     *
-     * @param exception {@link java.lang.String} to use as error subtitle.
      */
     public void setSubtitle(String exception) {
         subtitleView.setText(exception);
@@ -248,8 +234,6 @@ public class ErrorView extends LinearLayout {
 
     /**
      * Sets the error subtitle to a given string resource.
-     *
-     * @param res string resource to use as error subtitle.
      */
     public void setSubtitle(int res) {
         subtitleView.setText(res);
@@ -264,8 +248,6 @@ public class ErrorView extends LinearLayout {
 
     /**
      * Sets the error subtitle text to a given color
-     *
-     * @param res color resource to use for error subtitle text.
      */
     public void setSubtitleColor(int res) {
         subtitleView.setTextColor(res);
@@ -287,8 +269,6 @@ public class ErrorView extends LinearLayout {
 
     /**
      * Sets the retry button's text color to a given color.
-     *
-     * @param color int color to be used as text color.
      */
     public void setRetryColor(int color) {
         retryView.setTextColor(color);
@@ -309,10 +289,7 @@ public class ErrorView extends LinearLayout {
     }
 
     /**
-     * Attaches a listener that to the view that reports retry events.
-     *
-     * @param listener {@link tr.xip.errorview.ErrorView.RetryListener} to be notified when a retry
-     *                 event occurs.
+     * Attaches a listener to the view which will be notified when retry events occur.
      */
     public void setRetryListener(RetryListener listener) {
         retryListener = listener;
