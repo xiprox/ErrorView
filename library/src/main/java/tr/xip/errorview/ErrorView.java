@@ -200,13 +200,6 @@ public class ErrorView extends LinearLayout {
     }
 
     /**
-     * Returns the current error iamge
-     */
-    public Drawable getImage() {
-        return imageView.getDrawable();
-    }
-
-    /**
      * Sets the error title to a given {@link java.lang.String}.
      *
      * @param text {@link java.lang.String} to use as error title.
@@ -241,13 +234,6 @@ public class ErrorView extends LinearLayout {
     }
 
     /**
-     * Returns the current title text color.
-     */
-    public int getTitleColor() {
-        return titleView.getCurrentTextColor();
-    }
-
-    /**
      * Sets the error subtitle to a given {@link java.lang.String}.
      *
      * @param exception {@link java.lang.String} to use as error subtitle.
@@ -279,38 +265,6 @@ public class ErrorView extends LinearLayout {
      */
     public void setSubtitleColor(int res) {
         subtitleView.setTextColor(res);
-    }
-
-    /**
-     * Returns the current subtitle text color.
-     */
-    public int getSubtitleColor() {
-        return subtitleView.getCurrentTextColor();
-    }
-
-    /**
-     * Sets the retry button's text to a given {@link java.lang.String}.
-     *
-     * @param text {@link java.lang.String} to use as retry button text.
-     */
-    public void setRetryButtonText(String text) {
-        retryView.setText(text);
-    }
-
-    /**
-     * Sets the retry button's text to a given string resource.
-     *
-     * @param res string resource to be used as retry button text.
-     */
-    public void setRetryButtonText(int res) {
-        retryView.setText(res);
-    }
-
-    /**
-     * Returns the current retry button text.
-     */
-    public String getRetryButtonText() {
-        return retryView.getText().toString();
     }
 
     /**
