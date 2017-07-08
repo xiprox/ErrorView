@@ -4,6 +4,10 @@
         <item name="colorPrimary">@color/apptheme_primary</item>
         <item name="colorPrimaryDark">@color/apptheme_primary_dark</item>
         <item name="colorAccent">@color/apptheme_accent</item>
+        <item name="ev_style">@style/MyErrorView</item>
     </style>
 
+    <style name="MyErrorView">
+        <item name="ev_retryText">TRY AGAIN</item>
+    </style>
 </resources>
