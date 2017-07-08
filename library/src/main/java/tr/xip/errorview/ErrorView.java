@@ -200,8 +200,8 @@ public class ErrorView extends LinearLayout {
     /**
      * Returns the current title string.
      */
-    public String getTitle() {
-        return titleView.getText().toString();
+    public CharSequence getTitle() {
+        return titleView.getText();
     }
 
     /**
@@ -242,8 +242,8 @@ public class ErrorView extends LinearLayout {
     /**
      * Returns the current subtitle.
      */
-    public String getSubtitle() {
-        return subtitleView.getText().toString();
+    public CharSequence getSubtitle() {
+        return subtitleView.getText();
     }
 
     /**
