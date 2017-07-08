@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
-        android:id="@+id/error_image"
+        android:id="@+id/ev_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/error_view_cloud" />
 
     <TextView
-        android:id="@+id/error_title"
+        android:id="@+id/ev_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -21,7 +21,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/error_subtitle"
+        android:id="@+id/ev_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -31,7 +31,7 @@
         tools:text="Couldn\'t load items" />
 
     <TextView
-        android:id="@+id/error_retry"
+        android:id="@+id/ev_retry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

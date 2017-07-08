@@ -78,10 +78,10 @@ public class ErrorView extends LinearLayout {
             setLayoutTransition(new LayoutTransition());
         }
 
-        imageView = (ImageView) findViewById(R.id.error_image);
-        titleView = (TextView) findViewById(R.id.error_title);
-        subtitleView = (TextView) findViewById(R.id.error_subtitle);
-        retryView = (TextView) findViewById(R.id.error_retry);
+        imageView = (ImageView) findViewById(R.id.ev_image);
+        titleView = (TextView) findViewById(R.id.ev_title);
+        subtitleView = (TextView) findViewById(R.id.ev_subtitle);
+        retryView = (TextView) findViewById(R.id.ev_retry);
 
         int imageRes;
         int imageTint;
