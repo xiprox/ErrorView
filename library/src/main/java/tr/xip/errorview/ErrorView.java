@@ -163,16 +163,6 @@ public class ErrorView extends LinearLayout {
     }
 
     /**
-     * Attaches a listener that to the view that reports retry events.
-     *
-     * @param listener {@link tr.xip.errorview.ErrorView.RetryListener} to be notified when a retry
-     *                 event occurs.
-     */
-    public void setOnRetryListener(RetryListener listener) {
-        retryListener = listener;
-    }
-
-    /**
      * Sets error image to a given drawable resource
      *
      * @param res drawable resource.
@@ -234,6 +224,20 @@ public class ErrorView extends LinearLayout {
     }
 
     /**
+     * Shows or hides the error title
+     */
+    public void setTitleVisible(boolean visible) {
+        titleView.setVisibility(visible ? VISIBLE : GONE);
+    }
+
+    /**
+     * Indicates whether the title is currently visible.
+     */
+    public boolean isTitleVisible() {
+        return titleView.getVisibility() == VISIBLE;
+    }
+
+    /**
      * Sets the error subtitle to a given {@link java.lang.String}.
      *
      * @param exception {@link java.lang.String} to use as error subtitle.
@@ -268,40 +272,10 @@ public class ErrorView extends LinearLayout {
     }
 
     /**
-     * Sets the retry button's text color to a given color.
-     *
-     * @param color int color to be used as text color.
-     */
-    public void setRetryButtonTextColor(int color) {
-        retryView.setTextColor(color);
-    }
-
-    /**
-     * Returns the current retry button text color.
-     */
-    public int getRetryButtonTextColor() {
-        return retryView.getCurrentTextColor();
-    }
-
-    /**
-     * Shows or hides the error title
-     */
-    public void showTitle(boolean show) {
-        titleView.setVisibility(show ? VISIBLE : GONE);
-    }
-
-    /**
-     * Indicates whether the title is currently visible.
-     */
-    public boolean isTitleVisible() {
-        return titleView.getVisibility() == VISIBLE;
-    }
-
-    /**
      * Shows or hides error subtitle.
      */
-    public void showSubtitle(boolean show) {
-        subtitleView.setVisibility(show ? VISIBLE : GONE);
+    public void setSubtitleVisible(boolean visible) {
+        subtitleView.setVisibility(visible ? VISIBLE : GONE);
     }
 
     /**
@@ -312,17 +286,36 @@ public class ErrorView extends LinearLayout {
     }
 
     /**
+     * Sets the retry button's text color to a given color.
+     *
+     * @param color int color to be used as text color.
+     */
+    public void setRetryColor(int color) {
+        retryView.setTextColor(color);
+    }
+
+    /**
      * Shows or hides the retry button.
      */
-    public void showRetryButton(boolean show) {
-        retryView.setVisibility(show ? VISIBLE : GONE);
+    public void setRetryVisible(boolean visible) {
+        retryView.setVisibility(visible ? VISIBLE : GONE);
     }
 
     /**
      * Indicates whether the retry button is visible.
      */
-    public boolean isRetryButtonVisible() {
+    public boolean isRetryVisible() {
         return retryView.getVisibility() == VISIBLE;
+    }
+
+    /**
+     * Attaches a listener that to the view that reports retry events.
+     *
+     * @param listener {@link tr.xip.errorview.ErrorView.RetryListener} to be notified when a retry
+     *                 event occurs.
+     */
+    public void setRetryListener(RetryListener listener) {
+        retryListener = listener;
     }
 
     public interface RetryListener {
