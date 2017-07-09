@@ -24,11 +24,10 @@ public class MainActivity extends ActionBarActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        mErrorView.set()
-                                .title(R.string.error_title_damn)
-                                .titleColor(getResources().getColor(R.color.apptheme_primary))
-                                .subtitle(R.string.error_subtitle_failed_one_more_time)
-                                .retryText(R.string.error_view_retry);
+                        mErrorView.setTitle(R.string.error_title_damn)
+                                .setTitleColor(getResources().getColor(R.color.apptheme_primary))
+                                .setSubtitle(R.string.error_subtitle_failed_one_more_time)
+                                .setRetryText(R.string.error_view_retry);
 
                     }
                 }, 2000);
