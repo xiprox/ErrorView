@@ -170,36 +170,41 @@ public class ErrorView extends LinearLayout {
     /**
      * Sets error image to a given drawable resource.
      */
-    public void setImage(int res) {
+    public ErrorView setImage(int res) {
         imageView.setImageResource(res);
+        return this;
     }
 
     /**
      * Sets the error image to a given {@link android.graphics.drawable.Drawable}.
      */
-    public void setImage(Drawable drawable) {
+    public ErrorView setImage(Drawable drawable) {
         imageView.setImageDrawable(drawable);
+        return this;
     }
 
     /**
      * Sets the error image to a given {@link android.graphics.Bitmap}.
      */
-    public void setImage(Bitmap bitmap) {
+    public ErrorView setImage(Bitmap bitmap) {
         imageView.setImageBitmap(bitmap);
+        return this;
     }
 
     /**
      * Tints the error image with given color.
      */
-    public void setImageTint(int color) {
+    public ErrorView setImageTint(int color) {
         imageView.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
+        return this;
     }
 
     /**
      * Shows or hides the error image.
      */
-    public void setImageVisible(boolean visible) {
+    public ErrorView setImageVisible(boolean visible) {
         imageView.setVisibility(visible ? VISIBLE : GONE);
+        return this;
     }
 
     /**
@@ -212,19 +217,21 @@ public class ErrorView extends LinearLayout {
     /**
      * Sets the error title to a given {@link java.lang.String}.
      */
-    public void setTitle(String text) {
+    public ErrorView setTitle(String text) {
         setTitleVisible(text != null);
         titleView.setText(text);
+        return this;
     }
 
     /**
      * Sets the error title to a given string resource.
      */
-    public void setTitle(int res) {
+    public ErrorView setTitle(int res) {
         // An exception will be thrown if the res isn't found anyways so it's safe to just go ahead
         // and make the title visible.
         setTitleVisible(true);
         titleView.setText(res);
+        return this;
     }
 
     /**
@@ -237,15 +244,17 @@ public class ErrorView extends LinearLayout {
     /**
      * Sets the error title text to a given color.
      */
-    public void setTitleColor(int res) {
+    public ErrorView setTitleColor(int res) {
         titleView.setTextColor(res);
+        return this;
     }
 
     /**
      * Shows or hides the error title
      */
-    public void setTitleVisible(boolean visible) {
+    public ErrorView setTitleVisible(boolean visible) {
         titleView.setVisibility(visible ? VISIBLE : GONE);
+        return this;
     }
 
     /**
@@ -258,19 +267,21 @@ public class ErrorView extends LinearLayout {
     /**
      * Sets the error subtitle to a given {@link java.lang.String}.
      */
-    public void setSubtitle(String subtitle) {
+    public ErrorView setSubtitle(String subtitle) {
         setSubtitleVisible(subtitle != null);
         subtitleView.setText(subtitle);
+        return this;
     }
 
     /**
      * Sets the error subtitle to a given string resource.
      */
-    public void setSubtitle(int res) {
+    public ErrorView setSubtitle(int res) {
         // An exception will be thrown if the res isn't found anyways so it's safe to just go ahead
         // and make the title visible.
         setSubtitleVisible(true);
         subtitleView.setText(res);
+        return this;
     }
 
     /**
@@ -283,15 +294,17 @@ public class ErrorView extends LinearLayout {
     /**
      * Sets the error subtitle text to a given color
      */
-    public void setSubtitleColor(int res) {
+    public ErrorView setSubtitleColor(int res) {
         subtitleView.setTextColor(res);
+        return this;
     }
 
     /**
      * Shows or hides error subtitle.
      */
-    public void setSubtitleVisible(boolean visible) {
+    public ErrorView setSubtitleVisible(boolean visible) {
         subtitleView.setVisibility(visible ? VISIBLE : GONE);
+        return this;
     }
 
     /**
@@ -304,15 +317,17 @@ public class ErrorView extends LinearLayout {
     /**
      * Sets the retry button text to a given string.
      */
-    public void setRetryText(String text) {
+    public ErrorView setRetryText(String text) {
         retryView.setText(text);
+        return this;
     }
 
     /**
      * Sets the retry button text to a given string resource.
      */
-    public void setRetryText(int res) {
+    public ErrorView setRetryText(int res) {
         retryView.setText(res);
+        return this;
     }
 
     /**
@@ -325,15 +340,17 @@ public class ErrorView extends LinearLayout {
     /**
      * Sets the retry button's text color to a given color.
      */
-    public void setRetryColor(int color) {
+    public ErrorView setRetryColor(int color) {
         retryView.setTextColor(color);
+        return this;
     }
 
     /**
      * Shows or hides the retry button.
      */
-    public void setRetryVisible(boolean visible) {
+    public ErrorView setRetryVisible(boolean visible) {
         retryView.setVisibility(visible ? VISIBLE : GONE);
+        return this;
     }
 
     /**
@@ -346,8 +363,9 @@ public class ErrorView extends LinearLayout {
     /**
      * Attaches a listener to the view which will be notified when retry events occur.
      */
-    public void setRetryListener(RetryListener listener) {
+    public ErrorView setRetryListener(RetryListener listener) {
         retryListener = listener;
+        return this;
     }
 
     public interface RetryListener {
