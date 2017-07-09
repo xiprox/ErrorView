@@ -17,8 +17,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/error_view_oops"
         android:textColor="@color/error_view_text"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/ev_subtitle"
