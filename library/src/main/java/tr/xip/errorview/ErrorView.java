@@ -258,8 +258,8 @@ public class ErrorView extends LinearLayout {
     /**
      * Sets the error title text to a given color.
      */
-    public ErrorView setTitleColor(int res) {
-        titleView.setTextColor(res);
+    public ErrorView setTitleColor(int color) {
+        titleView.setTextColor(color);
         return this;
     }
 
@@ -308,8 +308,8 @@ public class ErrorView extends LinearLayout {
     /**
      * Sets the error subtitle text to a given color
      */
-    public ErrorView setSubtitleColor(int res) {
-        subtitleView.setTextColor(res);
+    public ErrorView setSubtitleColor(int color) {
+        subtitleView.setTextColor(color);
         return this;
     }
 
