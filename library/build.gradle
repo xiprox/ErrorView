@@ -1,5 +1,29 @@
 apply plugin: 'com.android.library'
 
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'errorview'
+
+    publishedGroupId = 'tr.xip.errorview'
+    libraryName = 'ErrorView'
+    artifact = 'library'
+
+    libraryDescription = 'A custom view that displays an image, a title, and a subtitle. It can be used for various purposes like displaying errors, empty states, or just messages with images.'
+
+    siteUrl = 'https://github.com/xiprox/ErrorView'
+    gitUrl = 'https://github.com/xiprox/ErrorView.git'
+
+    libraryVersion = project.VERSION_NAME
+
+    developerId = 'xip'
+    developerName = 'xip'
+    developerEmail = 'x.ihsan@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -16,5 +40,5 @@ android {
     }
 }
 
-// Used to upload project to maven central
-//apply from: '../maven_push.gradle'
+apply from: '../install.gradle'
+apply from: '../bintray.gradle'

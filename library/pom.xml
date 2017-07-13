@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>tr.xip.errorview</groupId>
+  <artifactId>library</artifactId>
+  <version>3.0.0</version>
+  <packaging>aar</packaging>
+  <name>ErrorView</name>
+  <description>A custom view that displays an image, a title, and a subtitle. It can be used for various purposes like displaying errors, empty states, or just messages with images.</description>
+  <url>https://github.com/xiprox/ErrorView</url>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>xip</id>
+      <name>xip</name>
+      <email>x.ihsan@gmail.com</email>
+    </developer>
+  </developers>
+  <scm>
+    <connection>https://github.com/xiprox/ErrorView.git</connection>
+    <developerConnection>https://github.com/xiprox/ErrorView.git</developerConnection>
+    <url>https://github.com/xiprox/ErrorView</url>
+  </scm>
+</project>
