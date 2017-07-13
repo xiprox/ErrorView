@@ -3,11 +3,17 @@ package tr.xip.errorview.sample;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.widget.Toast;
 
 import tr.xip.errorview.ErrorView;
 
 public class MainActivity extends ActionBarActivity {
+
+    static {
+        AppCompatDelegate.setDefaultNightMode(
+                AppCompatDelegate.MODE_NIGHT_AUTO);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
