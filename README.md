@@ -1,88 +1,146 @@
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-ErrorView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1285)
-
-ErrorView
-=========
-A custom view that displays an error image, a title, and a subtitle given an HTTP status code. It can be used for various other purposes like displaying other kinds of errors, or just messages with images.
-
 <p align="center">
-<img src="/graphics/screenshots/ss_01.png" />
+<img src="/graphics/icon/sadface.png" height="60px" width="60px"/>
+</p>
+<h3><p align="center">ErrorView</p></h3>
+
+<p align="center"><i>A custom view that displays an image, a title, and a subtitle. It can be used for various purposes like displaying errors, empty states, or just messages with images.</i></p>
+
+![](/graphics/screenshots/ss_01.png)
+
+<p align="right">
+<a href='https://github.com/xiprox/ErrorView/releases/latest'><img height="48" alt='Get apk' src='https://cloud.githubusercontent.com/assets/2550945/21590907/dd74e0f0-d0ff-11e6-971f-d429148fd03d.png'/></a>
 </p>
 
-#Usage
-###Add as a dependency
-```groovy
-    compile 'com.github.xiprox.errorview:library:2.+'
-````
-
-###Set the error by HTTP Status Code
-You just need to pass your HTTP status code using `setError(int)` and ErrorView will show the associated error description for you.
-
-###Set the error manually
-In order to set the title or the subtitle manually, you can make use of the `setTitle(String)`, `setTitle(int)`, `setSubtitle(String)`, and `setSubtitle(int)` methods.
-
-###Configs
-Configs are like packages that hold the ErrorView state. You can use configs to define a very common error and reuse it all around your app.
-
-```java
-    mErrorView.setConfig(Config);
+## Download
+```gradle
+compile 'tr.xip.errorview:library:3.0.0'
 ```
+**Note:** You might have to add `jcenter()` to your repositories.
+
+**Note #2:** Older versions were `com.github.xiprox.errorview:library:x.y.z`.
+
+## Usage
+
+#### Image
 ```java
-    mErrorView.getConfig();
+setImage(int res)
+setImage(Drawable)
+setImage(Bitmap)
+
+setImageTint(int color)
+
+setImageVisible(boolean)
+isImageVisible()
+
+setImageSize(int width) // The ImageView adjusts its height to preserve aspect ratio.
 ```
-
-####Defining a Config
-```java
-    ErrorView.Config.create()
-            .image(int)
-            .image(Drawable)
-            .image(Bitmap)
-            .title(String)
-            .titleColor(int)
-            .subtitle(String)
-            .subtitleColor(int)
-            .retryVisible(boolean)
-            .retryText(String)
-            .retryTextColor(int)
-            .build();
-```
-
-###Catch Retry Events
-To catch retry events, you can make use of the `setOnRetryListener(RetryListener)` method.
-
-###More Methods
-Check out the [source code](../master/library/src/main/java/tr/xip/errorview/ErrorView.java) for other methods and their explanations.
-
-###XML Attributes
 ```xml
-<tr.xip.errorview.ErrorView xmlns:errorview="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/error_view"
+app:ev_image="@drawable/,,,"
+app:ev_imageTint="@color/..."
+app:ev_imageVisible="boolean"
+app:ev_imageSize="123dp"
+```
+
+#### Title
+```java
+setTitle(String)
+setTitle(int res)
+getTitle(): CharSequence
+setTitleColor(int color)
+setTitleVisible(boolean)
+isTitleVisible()
+```
+```xml
+app:ev_title="@string/..."
+app:ev_titleColor="@color/..."
+app:ev_titleVisible="boolean"
+```
+
+#### Subtitle
+```java
+setSubtitle(String)
+setSubtitle(int res)
+getSubtitle(): CharSequence
+setSubtitleColor(int color)
+setSubtitleVisible(boolean visible)
+isSubtitleVisible()
+```
+```xml
+app:ev_subtitle="@string/..."
+app:ev_subtitleColor="@color/..."
+app:ev_subtitleVisible="boolean"
+```
+
+#### Retry button
+```java
+setRetryText(String)
+setRetryText(int res)
+getRetryText(): CharSequence
+setRetryColor(int color)
+setRetryVisible(boolean)
+isRetryVisible()
+```
+```xml
+app:ev_retryText="@string/..."
+app:ev_retryBackground="@drawable/..."
+app:ev_retryColor="@color/..."
+app:ev_retryVisible="boolean"
+```
+#### Retry listener
+```java
+setRetryListener(RetryListener)
+```
+
+#### Builder pattern
+All set methods return `ErrorView`, so you can chain them like such:
+```java
+errorView.setImage(image).setTitle(e.title).setSubtitle(e.message).setRetryVisible(false);
+```
+
+## Theming
+You can theme ErrorView app-wide:
+```xml
+<style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    ...
+    <item name="ev_style">@style/MyErrorView</item>
+</style>
+ 
+<style name="MyErrorView">
+    <item name="ev_retryText">@string/error_retry</item>
+    <item name="ev_image">@drawable/sadface</item>
+</style>
+```
+
+You can also apply themes to specific ErrorViews:
+```xml
+<tr.xip.errorview.ErrorView
+    android:id="@+id/specialErrorView"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    errorview:ev_title="@string/..."
-    errorview:ev_titleColor="@color/..."
-    errorview:ev_subtitle="@string/..."
-    errorview:ev_subtitleColor="@color/..."
-    errorview:ev_errorImage="@drawable/..."
-    errorview:ev_showTitle="boolean"
-    errorview:ev_showSubtitle="boolean"
-    errorview:ev_showRetryButton="boolean"
-    errorview:ev_retryButtonText="@string/..."
-    errorview:ev_retryButtonBackground="@drawable/..."
-    errorview:ev_retryButtonTextColor="@color/..." />
+    android:theme="@style/MySpecialErrorView"/>
+```
+```xml
+<style name="MySpecialErrorView">
+    <item name="ev_imageSize">120dp</item>
+    <item name="ev_retryColor">@color/apptheme_accent>>
+</style>
 ```
 
-#Sample App
-<a href="https://play.google.com/store/apps/details?id=tr.xip.errorview.sample">
-<img alt="Get it on Google Play"
-src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png" />
-</a>
+And yes, ErrorView supports `AppCompat.DayNight` out-of-the-box. In fact the above style snippet is from the sample app. 
 
-#Apps using ErrorView
-Check out [this](https://github.com/xiprox/ErrorView/wiki/Apps-using-ErrorView) wiki page for the list of apps using ErrorView. If you are using ErrorView in your app, please take a moment to add your app to the list. I really appreciate it.
-
-#License
+## Further customization
+If you are looking for further customization, you can always do something like the following, albeit a bit hacky:
+```java
+ImageView image = (ImageView) errorView.findViewById(R.id.ev_image);
+TextView title = (TextView) errorView.findViewById(R.id.ev_title);
+TextView subtitle = (TextView) errorView.findViewById(R.id.ev_subtitle);
+TextView retryButton = (TextView) errorView.findViewById(R.id.ev_retry);
 ```
-Copyright (C) 2015 Ihsan Isik
+These view ids will not be changed unless there is a major version increment (e.g. 3.0.0 -> 4.0.0).
+
+## License
+```
+Copyright (C) 2017 İhsan Işık
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -96,3 +154,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
+Apache License Version 2.0 ([LICENSE](/LICENSE))
