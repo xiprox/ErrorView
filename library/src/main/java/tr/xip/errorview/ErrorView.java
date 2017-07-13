@@ -82,6 +82,7 @@ public class ErrorView extends LinearLayout {
         int imageRes;
         int imageTint;
         boolean imageVisible;
+        int imageSize;
 
         String title;
         int titleColor;
@@ -101,6 +102,7 @@ public class ErrorView extends LinearLayout {
             imageRes = a.getResourceId(R.styleable.ErrorView_ev_image, R.drawable.error_view_cloud);
             imageTint = a.getColor(R.styleable.ErrorView_ev_imageTint, 0);
             imageVisible = a.getBoolean(R.styleable.ErrorView_ev_imageVisible, true);
+            imageSize = a.getDimensionPixelSize(R.styleable.ErrorView_ev_imageSize, 0);
             title = a.getString(R.styleable.ErrorView_ev_title);
             titleColor = a.getColor(R.styleable.ErrorView_ev_titleColor,
                     getResources().getColor(R.color.error_view_text));
@@ -123,6 +125,9 @@ public class ErrorView extends LinearLayout {
                 setImageTint(imageTint);
             }
             setImageVisible(imageVisible);
+            if (imageSize != 0) {
+                setImageSize(imageSize);
+            }
 
             if (title != null) {
                 setTitle(title);
@@ -204,6 +209,15 @@ public class ErrorView extends LinearLayout {
      */
     public ErrorView setImageVisible(boolean visible) {
         imageView.setVisibility(visible ? VISIBLE : GONE);
+        return this;
+    }
+
+    /**
+     * Sets error image width to given pixel value. The ImageView adjusts its bounds to preserve the
+     * aspect ratio of its drawable.
+     */
+    public ErrorView setImageSize(int width) {
+        imageView.getLayoutParams().width = width;
         return this;
     }
 
