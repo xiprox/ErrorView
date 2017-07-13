@@ -105,18 +105,18 @@ public class ErrorView extends LinearLayout {
             imageSize = a.getDimensionPixelSize(R.styleable.ErrorView_ev_imageSize, 0);
             title = a.getString(R.styleable.ErrorView_ev_title);
             titleColor = a.getColor(R.styleable.ErrorView_ev_titleColor,
-                    getResources().getColor(R.color.error_view_text));
+                    getResources().getColor(R.color.error_view_title));
             titleVisible = a.getBoolean(R.styleable.ErrorView_ev_titleVisible, true);
             subtitle = a.getString(R.styleable.ErrorView_ev_subtitle);
             subtitleColor = a.getColor(R.styleable.ErrorView_ev_subtitleColor,
-                    getResources().getColor(R.color.error_view_text_light));
+                    getResources().getColor(R.color.error_view_subtitle));
             subtitleVisible = a.getBoolean(R.styleable.ErrorView_ev_subtitleVisible, true);
             retryVisible = a.getBoolean(R.styleable.ErrorView_ev_retryVisible, true);
             retryText = a.getString(R.styleable.ErrorView_ev_retryText);
             retryBackground = a.getResourceId(R.styleable.ErrorView_ev_retryBackground,
                     R.drawable.error_view_retry_button_background);
             retryColor = a.getColor(R.styleable.ErrorView_ev_retryColor,
-                    getResources().getColor(R.color.error_view_text_dark));
+                    getResources().getColor(R.color.error_view_retry));
 
             if (imageRes != 0) {
                 setImage(imageRes);

@@ -17,7 +17,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:text="@string/error_view_oops"
-        android:textColor="@color/error_view_text"
+        android:textColor="@color/error_view_title"
         android:textSize="18sp" />
 
     <TextView
@@ -27,7 +27,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
         android:gravity="center_horizontal"
-        android:textColor="@color/error_view_text_light"
+        android:textColor="@color/error_view_subtitle"
         tools:text="Couldn\'t load items" />
 
     <TextView
@@ -39,6 +39,6 @@
         android:background="@drawable/error_view_retry_button_background"
         android:padding="8dp"
         android:text="@string/error_view_retry"
-        android:textColor="@color/error_view_text_dark"
+        android:textColor="@color/error_view_retry"
         android:textStyle="bold" />
 </merge>

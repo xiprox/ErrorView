@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="error_view_title">#ccffffff</color>
+    <color name="error_view_subtitle">#78ffffff</color>
+
+    <color name="error_view_retry_button_background">#40ffffff</color>
+    <color name="error_view_retry_button_background_stroke">#50ffffff</color>
+</resources>
