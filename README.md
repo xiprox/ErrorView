@@ -1,6 +1,3 @@
-<p align="center">
-<img src="/graphics/icon/sadface.png" height="60px" width="60px"/>
-</p>
 <h3><p align="center">ErrorView</p></h3>
 
 <p align="center"><i>A custom view that displays an image, a title, and a subtitle. It can be used for various purposes like displaying errors, empty states, or just messages with images.</i></p>
