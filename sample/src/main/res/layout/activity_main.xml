@@ -14,6 +14,7 @@
         android:id="@+id/error_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:ev_imageSize="120dp"
         app:ev_retryColor="@color/apptheme_accent"
         app:ev_subtitle="Something went terribly wrong!" />
 </RelativeLayout>

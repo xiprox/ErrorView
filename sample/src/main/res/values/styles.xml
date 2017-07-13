@@ -9,5 +9,6 @@
 
     <style name="MyErrorView">
         <item name="ev_retryText">TRY AGAIN</item>
+        <item name="ev_image">@drawable/sadface</item>
     </style>
 </resources>
