@@ -14,7 +14,9 @@ compile 'tr.xip.errorview:library:3.0.0'
 ```
 **Note:** You might have to add `jcenter()` to your repositories.
 
-**Note #2:** Older versions were `com.github.xiprox.errorview:library:x.y.z`.
+Pre-3.0 versions were `com.github.xiprox.errorview:library:x.y.z`.
+
+If you're migrating from v2, you may find the changelog in the [releases](https://github.com/xiprox/ErrorView/releases) page helpful.
 
 ## Usage
 
