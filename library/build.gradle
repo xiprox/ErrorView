@@ -26,12 +26,12 @@ ext {
 }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 27
     buildToolsVersion "28.0.1"
 
     defaultConfig {
-        minSdkVersion 8
-        targetSdkVersion 28
+        minSdkVersion 14
+        targetSdkVersion 27
         versionCode Integer.parseInt(project.VERSION_CODE)
         versionName project.VERSION_NAME
     }
@@ -47,5 +47,5 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
