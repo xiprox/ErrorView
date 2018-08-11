@@ -10,7 +10,7 @@ A custom view that displays an image, a title, and a subtitle. It can be used fo
 
 ## Download
 ```gradle
-compile 'tr.xip.errorview:library:3.0.0'
+compile 'tr.xip.errorview:library:4.0.0'
 ```
 **Note:** You might have to add `jcenter()` to your repositories.
 
@@ -29,9 +29,10 @@ setImage(Bitmap)
 setImageTint(int color)
 
 setImageVisible(boolean)
-isImageVisible()
 
 setImageSize(int width) // The ImageView adjusts its height to preserve aspect ratio.
+
+.isImageVisible
 ```
 ```xml
 app:ev_image="@drawable/,,,"
@@ -44,10 +45,10 @@ app:ev_imageSize="123dp"
 ```java
 setTitle(String)
 setTitle(int res)
-getTitle(): CharSequence
 setTitleColor(int color)
 setTitleVisible(boolean)
-isTitleVisible()
+.title
+.isTitleVisible
 ```
 ```xml
 app:ev_title="@string/..."
@@ -59,10 +60,10 @@ app:ev_titleVisible="boolean"
 ```java
 setSubtitle(String)
 setSubtitle(int res)
-getSubtitle(): CharSequence
 setSubtitleColor(int color)
 setSubtitleVisible(boolean visible)
-isSubtitleVisible()
+.subtitle
+.isSubtitleVisible
 ```
 ```xml
 app:ev_subtitle="@string/..."
@@ -74,10 +75,10 @@ app:ev_subtitleVisible="boolean"
 ```java
 setRetryText(String)
 setRetryText(int res)
-getRetryText(): CharSequence
 setRetryColor(int color)
 setRetryVisible(boolean)
-isRetryVisible()
+.retryText
+.isRetryVisible
 ```
 ```xml
 app:ev_retryText="@string/..."
@@ -93,7 +94,7 @@ setRetryListener(RetryListener)
 #### Builder pattern
 All set methods return `ErrorView`, so you can chain them like such:
 ```java
-errorView.setImage(image).setTitle(e.title).setSubtitle(e.message).setRetryVisible(false);
+errorView.setImage(image).setTitle(e.title).setSubtitle(e.message).setRetryVisible(false)
 ```
 
 ## Theming
@@ -130,12 +131,12 @@ And yes, ErrorView supports `AppCompat.DayNight` out-of-the-box. In fact the abo
 ## Further customization
 If you are looking for further customization, you can always do something like the following, albeit a bit hacky:
 ```java
-ImageView image = (ImageView) errorView.findViewById(R.id.ev_image);
-TextView title = (TextView) errorView.findViewById(R.id.ev_title);
-TextView subtitle = (TextView) errorView.findViewById(R.id.ev_subtitle);
-TextView retryButton = (TextView) errorView.findViewById(R.id.ev_retry);
+val image = errorView.findViewById(R.id.ev_image)
+val title = errorView.findViewById(R.id.ev_title)
+val subtitle = errorView.findViewById(R.id.ev_subtitle)
+val retryButton = errorView.findViewById(R.id.ev_retry)
 ```
-These view ids will not be changed unless there is a major version increment (e.g. 3.0.0 -> 4.0.0).
+These view ids will not be changed unless there is a major version increment (e.g. 4.0.0 -> 5.0.0).
 
 ## License
 ```
