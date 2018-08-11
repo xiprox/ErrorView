@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>tr.xip.errorview</groupId>
   <artifactId>library</artifactId>
-  <version>3.0.0</version>
+  <version>4.0.0</version>
   <packaging>aar</packaging>
   <name>ErrorView</name>
   <description>A custom view that displays an image, a title, and a subtitle. It can be used for various purposes like displaying errors, empty states, or just messages with images.</description>
