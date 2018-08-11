@@ -10,7 +10,7 @@ A custom view that displays an image, a title, and a subtitle. It can be used fo
 
 ## Download
 ```gradle
-compile 'tr.xip.errorview:library:4.0.0'
+implementation 'tr.xip.errorview:library:4.0.0'
 ```
 **Note:** You might have to add `jcenter()` to your repositories.
 
