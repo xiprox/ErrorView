@@ -174,44 +174,51 @@ class ErrorView : LinearLayout {
     /**
      * Indicates whether the title is currently visible.
      */
-    val isImageVisible: Boolean
+    var isImageVisible: Boolean
         get() = imageView!!.visibility == View.VISIBLE
+        set(value) = setImageVisible(value).unitify()
 
     /**
      * Returns the current title string.
      */
-    val title: CharSequence
+    var title: CharSequence
         get() = titleView!!.text
+        set(value) = setTitle(value.toString()).unitify()
 
     /**
      * Indicates whether the title is currently visible.
      */
-    val isTitleVisible: Boolean
+    var isTitleVisible: Boolean
         get() = titleView!!.visibility == View.VISIBLE
+        set(value) = setTitleVisible(value).unitify()
 
     /**
      * Returns the current subtitle.
      */
-    val subtitle: CharSequence
+    var subtitle: CharSequence
         get() = subtitleView!!.text
+        set(value) = setSubtitle(value.toString()).unitify()
 
     /**
      * Indicates whether the subtitle is currently visible.
      */
-    val isSubtitleVisible: Boolean
+    var isSubtitleVisible: Boolean
         get() = subtitleView!!.visibility == View.VISIBLE
+        set(value) = setSubtitleVisible(value).unitify()
 
     /**
      * Returns the retry button text.
      */
-    val retryText: CharSequence
+    var retryText: CharSequence
         get() = retryView!!.text
+        set(value) = setRetryText(value.toString()).unitify()
 
     /**
      * Indicates whether the retry button is visible.
      */
-    val isRetryVisible: Boolean
+    var isRetryVisible: Boolean
         get() = retryView!!.visibility == View.VISIBLE
+        set(value) = setRetryVisible(value).unitify()
 
     /**
      * Sets error image to a given drawable resource.
