@@ -35,10 +35,10 @@ import android.widget.TextView
  * purposes like displaying errors, empty states, or just messages with images.
  */
 class ErrorView : LinearLayout {
-    private var imageView: ImageView? = null
-    private var titleView: TextView? = null
-    private var subtitleView: TextView? = null
-    private var retryView: TextView? = null
+    private lateinit var imageView: ImageView
+    private lateinit var titleView: TextView
+    private lateinit var subtitleView: TextView
+    private lateinit var retryView: TextView
 
     private var retryListener: (() -> Unit)? = null
 
@@ -142,31 +142,31 @@ class ErrorView : LinearLayout {
             }
 
             if (retryText != null) {
-                retryView!!.text = retryText
+                retryView.text = retryText
             }
 
             if (!titleVisible) {
-                titleView!!.visibility = View.GONE
+                titleView.visibility = View.GONE
             }
 
             if (!subtitleVisible) {
-                subtitleView!!.visibility = View.GONE
+                subtitleView.visibility = View.GONE
             }
 
             if (!retryVisible) {
-                retryView!!.visibility = View.GONE
+                retryView.visibility = View.GONE
             }
 
-            titleView!!.setTextColor(titleColor)
-            subtitleView!!.setTextColor(subtitleColor)
+            titleView.setTextColor(titleColor)
+            subtitleView.setTextColor(subtitleColor)
 
-            retryView!!.setTextColor(retryColor)
-            retryView!!.setBackgroundResource(retryBackground)
+            retryView.setTextColor(retryColor)
+            retryView.setBackgroundResource(retryBackground)
         } finally {
             a.recycle()
         }
 
-        retryView!!.setOnClickListener {
+        retryView.setOnClickListener {
             retryListener?.invoke()
         }
     }
@@ -175,56 +175,56 @@ class ErrorView : LinearLayout {
      * Indicates whether the title is currently visible.
      */
     var isImageVisible: Boolean
-        get() = imageView!!.visibility == View.VISIBLE
+        get() = imageView.visibility == View.VISIBLE
         set(value) = setImageVisible(value).unitify()
 
     /**
      * Returns the current title string.
      */
     var title: CharSequence
-        get() = titleView!!.text
+        get() = titleView.text
         set(value) = setTitle(value.toString()).unitify()
 
     /**
      * Indicates whether the title is currently visible.
      */
     var isTitleVisible: Boolean
-        get() = titleView!!.visibility == View.VISIBLE
+        get() = titleView.visibility == View.VISIBLE
         set(value) = setTitleVisible(value).unitify()
 
     /**
      * Returns the current subtitle.
      */
     var subtitle: CharSequence
-        get() = subtitleView!!.text
+        get() = subtitleView.text
         set(value) = setSubtitle(value.toString()).unitify()
 
     /**
      * Indicates whether the subtitle is currently visible.
      */
     var isSubtitleVisible: Boolean
-        get() = subtitleView!!.visibility == View.VISIBLE
+        get() = subtitleView.visibility == View.VISIBLE
         set(value) = setSubtitleVisible(value).unitify()
 
     /**
      * Returns the retry button text.
      */
     var retryText: CharSequence
-        get() = retryView!!.text
+        get() = retryView.text
         set(value) = setRetryText(value.toString()).unitify()
 
     /**
      * Indicates whether the retry button is visible.
      */
     var isRetryVisible: Boolean
-        get() = retryView!!.visibility == View.VISIBLE
+        get() = retryView.visibility == View.VISIBLE
         set(value) = setRetryVisible(value).unitify()
 
     /**
      * Sets error image to a given drawable resource.
      */
     fun setImage(res: Int): ErrorView {
-        imageView!!.setImageResource(res)
+        imageView.setImageResource(res)
         return this
     }
 
@@ -232,7 +232,7 @@ class ErrorView : LinearLayout {
      * Sets the error image to a given [android.graphics.drawable.Drawable].
      */
     fun setImage(drawable: Drawable): ErrorView {
-        imageView!!.setImageDrawable(drawable)
+        imageView.setImageDrawable(drawable)
         return this
     }
 
@@ -240,7 +240,7 @@ class ErrorView : LinearLayout {
      * Sets the error image to a given [android.graphics.Bitmap].
      */
     fun setImage(bitmap: Bitmap): ErrorView {
-        imageView!!.setImageBitmap(bitmap)
+        imageView.setImageBitmap(bitmap)
         return this
     }
 
@@ -248,7 +248,7 @@ class ErrorView : LinearLayout {
      * Tints the error image with given color.
      */
     fun setImageTint(color: Int): ErrorView {
-        imageView!!.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+        imageView.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
         return this
     }
 
@@ -256,7 +256,7 @@ class ErrorView : LinearLayout {
      * Shows or hides the error image.
      */
     fun setImageVisible(visible: Boolean): ErrorView {
-        imageView!!.visibility = if (visible) View.VISIBLE else View.GONE
+        imageView.visibility = if (visible) View.VISIBLE else View.GONE
         return this
     }
 
@@ -265,7 +265,7 @@ class ErrorView : LinearLayout {
      * aspect ratio of its drawable.
      */
     fun setImageSize(width: Int): ErrorView {
-        imageView!!.layoutParams.width = width
+        imageView.layoutParams.width = width
         return this
     }
 
@@ -274,7 +274,7 @@ class ErrorView : LinearLayout {
      */
     fun setTitle(text: String?): ErrorView {
         setTitleVisible(text != null)
-        titleView!!.text = text
+        titleView.text = text
         return this
     }
 
@@ -285,7 +285,7 @@ class ErrorView : LinearLayout {
         // An exception will be thrown if the res isn't found anyways so it's safe to just go ahead
         // and make the title visible.
         setTitleVisible(true)
-        titleView!!.setText(res)
+        titleView.setText(res)
         return this
     }
 
@@ -293,7 +293,7 @@ class ErrorView : LinearLayout {
      * Sets the error title text to a given color.
      */
     fun setTitleColor(color: Int): ErrorView {
-        titleView!!.setTextColor(color)
+        titleView.setTextColor(color)
         return this
     }
 
@@ -301,7 +301,7 @@ class ErrorView : LinearLayout {
      * Shows or hides the error title
      */
     fun setTitleVisible(visible: Boolean): ErrorView {
-        titleView!!.visibility = if (visible) View.VISIBLE else View.GONE
+        titleView.visibility = if (visible) View.VISIBLE else View.GONE
         return this
     }
 
@@ -310,7 +310,7 @@ class ErrorView : LinearLayout {
      */
     fun setSubtitle(subtitle: String?): ErrorView {
         setSubtitleVisible(subtitle != null)
-        subtitleView!!.text = subtitle
+        subtitleView.text = subtitle
         return this
     }
 
@@ -321,7 +321,7 @@ class ErrorView : LinearLayout {
         // An exception will be thrown if the res isn't found anyways so it's safe to just go ahead
         // and make the title visible.
         setSubtitleVisible(true)
-        subtitleView!!.setText(res)
+        subtitleView.setText(res)
         return this
     }
 
@@ -329,7 +329,7 @@ class ErrorView : LinearLayout {
      * Sets the error subtitle text to a given color
      */
     fun setSubtitleColor(color: Int): ErrorView {
-        subtitleView!!.setTextColor(color)
+        subtitleView.setTextColor(color)
         return this
     }
 
@@ -337,7 +337,7 @@ class ErrorView : LinearLayout {
      * Shows or hides error subtitle.
      */
     fun setSubtitleVisible(visible: Boolean): ErrorView {
-        subtitleView!!.visibility = if (visible) View.VISIBLE else View.GONE
+        subtitleView.visibility = if (visible) View.VISIBLE else View.GONE
         return this
     }
 
@@ -345,7 +345,7 @@ class ErrorView : LinearLayout {
      * Sets the retry button text to a given string.
      */
     fun setRetryText(text: String): ErrorView {
-        retryView!!.text = text
+        retryView.text = text
         return this
     }
 
@@ -353,7 +353,7 @@ class ErrorView : LinearLayout {
      * Sets the retry button text to a given string resource.
      */
     fun setRetryText(res: Int): ErrorView {
-        retryView!!.setText(res)
+        retryView.setText(res)
         return this
     }
 
@@ -361,7 +361,7 @@ class ErrorView : LinearLayout {
      * Sets the retry button's text color to a given color.
      */
     fun setRetryColor(color: Int): ErrorView {
-        retryView!!.setTextColor(color)
+        retryView.setTextColor(color)
         return this
     }
 
@@ -369,7 +369,7 @@ class ErrorView : LinearLayout {
      * Shows or hides the retry button.
      */
     fun setRetryVisible(visible: Boolean): ErrorView {
-        retryView!!.visibility = if (visible) View.VISIBLE else View.GONE
+        retryView.visibility = if (visible) View.VISIBLE else View.GONE
         return this
     }
 
